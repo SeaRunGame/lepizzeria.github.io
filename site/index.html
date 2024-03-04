@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>LePizzeria</title>
+    <title>John and Jane's Wedding</title>
     <link rel="stylesheet" type="text/css" href="theme.css"> 
     <link rel="stylesheet" type="text/css" href="./icons/css/all.min.css"> 
     <link href="https://fonts.googleapis.com/css?family=Caveat|Quicksand&display=swap" rel="stylesheet">
@@ -11,8 +11,8 @@
   <body>
     <header class="header">
       <h1 class="heading">
-        LePizzeria
-        <span class="heading-subtext"> Pizzeria</span>
+        John & Jane
+        <span class="heading-subtext"> are getting married!</span>
       </h1>
     </header>
     <a data-scroll class="fixed-button" href="#rsvp" id="rsvpButton">RSVP</a> 
@@ -60,5 +60,16 @@
         <!-- Include Embedded link of Google Form here in place of # -->
         <!-- <iframe title="RSVP" src="" style="width:100%;" height="960" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe> -->
       </div>
+    </section>
+    <script src="./js/smooth-scroll.polyfills.min.js"></script>
+    <script defer>
+      var scroll = new SmoothScroll('a[href*="#"]');
+      var rsvpButton = document.getElementById('rsvpButton')
+      rsvpButton.addEventListener('click',hideButton,false);
+
+      function hideButton() {
+        rsvpButton.style.display = 'none';
+      }   
+    </script>
   </body>
 </html>
