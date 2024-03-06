@@ -39,7 +39,7 @@ function HandleEvent(event) //eventHandler
             {
                 alert("Success"); //Debug
 
-                //window-location.replace("index.html");
+                window-location.replace("index.html");
             }
         }
     }
@@ -54,7 +54,7 @@ function HandleEvent(event) //eventHandler
         //set logged in;
         localStorage.setItem("logged_in", username);            
         alert("Success"); //Debug
-        //window-location.replace("index.html");
+        window-location.replace("index.html");
     }
     else//if event is unkown--------------------------------------------------------------
     {
