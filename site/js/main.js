@@ -1,6 +1,4 @@
-localStorage.setItem("logged_in", username);
 document.addEventListener("DOMContentLoaded", HandleEvent("check_log_status"))
-
 
 function HandleEvent(event) //eventHandler
 {
@@ -13,6 +11,7 @@ function HandleEvent(event) //eventHandler
         //if username exists
         if (username in localStorage)
         {
+            localStorage.setItem("logged_in", username);
             HandleEvent("logged_in");
         }
         else
@@ -39,6 +38,18 @@ function HandleEvent(event) //eventHandler
             {
                 HandleEvent("logged_in");
             }
+            else
+            {
+                document.getElementById("log-in-page").style.display = 'none';
+                document.getElementById("register-page").style.display = 'none';
+                document.getElementById("logged_in_page").style.display = 'block';
+            }
+        }
+        else
+        {
+            document.getElementById("log-in-page").style.display = 'none';
+            document.getElementById("register-page").style.display = 'none';
+            document.getElementById("logged_in_page").style.display = 'block';
         }
     }
     else if (event === "save_account_data") //dave account data event-------------------------
@@ -56,15 +67,25 @@ function HandleEvent(event) //eventHandler
     }
     else if (event === "logged_in")//------------------------------------------------
     {
-        //hide log in elements
+        //hide elements
         document.getElementById("log-in-page").style.display = 'none';
-        document.getElementById("register-page").style.visibility = 'hidden';
+        document.getElementById("register-page").style.display = 'none';
 
         //show logged in elements
-        document.getElementById("username-text").style.visibility = "visible";
-        var username = localStorage.getItem("logged_in"); //Get username
+        document.getElementById("logged_in_page").style.display = 'block';
         //set the welcome text
-        document.getElementById("username-text").textContent = "Welcome, " + localStorage.getItem(username) + "!";
+        document.getElementById("username-text").textContent = "Welcome, " + localStorage.getItem("logged_in") + "!";
+    }
+    else if (event === "log_out")
+    {
+        //show elements
+        document.getElementById("log-in-page").style.display = 'block';
+        document.getElementById("register-page").style.display = 'block';
+
+        //hide logged in elements
+        document.getElementById("logged_in_page").style.display = 'none';
+
+        localStorage.setItem("logged_in", "none");
     }
     else//if event is unkown--------------------------------------------------------------
     {
