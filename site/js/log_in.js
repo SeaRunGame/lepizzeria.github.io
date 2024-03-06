@@ -43,7 +43,7 @@ function HandleEvent(event) //eventHandler
             }
         }
     }
-    else if (event === "save_account_data") //dave account data event-------------------------
+    else if (event === "save_account_data") //save account data event-------------------------
     {
         // Get username and password
         var username = document.getElementById("new-username-field").value;
