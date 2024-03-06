@@ -12,7 +12,6 @@ function HandleEvent(event) //eventHandler
         if (username in localStorage && localStorage.getItem(username) === password)
         {
             localStorage.setItem("logged_in", username);         
-            alert("Success"); //Debug
             window-location.replace("index.html");
         }
         else
@@ -37,8 +36,6 @@ function HandleEvent(event) //eventHandler
         {
             if (localStorage.getItem("logged_in") !== "")
             {
-                alert("Success"); //Debug
-
                 window-location.replace("index.html");
             }
         }
@@ -60,8 +57,7 @@ function HandleEvent(event) //eventHandler
         {
             localStorage.setItem(username, password);
             //set logged in;
-            localStorage.setItem("logged_in", username);            
-            alert("Success"); //Debug
+            localStorage.setItem("logged_in", username);
             window-location.replace("index.html");
         }
     }

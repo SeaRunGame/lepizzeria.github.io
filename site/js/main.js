@@ -13,7 +13,6 @@ function HandleEvent(event)
         else 
         {
             // User is not logged in
-            alert("not logged in");
             document.getElementById("logged_in_page").style.display = 'none';
             document.getElementById("log_in_link").style.display = 'block';
         }
@@ -21,7 +20,6 @@ function HandleEvent(event)
     else if (event === "logged_in") 
     {
         // Show logged in elements
-        alert("logging in...");
         document.getElementById("logged_in_page").style.display = 'block';
         document.getElementById("log_in_link").style.display = 'none';
 
