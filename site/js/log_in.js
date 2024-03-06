@@ -50,11 +50,20 @@ function HandleEvent(event) //eventHandler
         var password = document.getElementById("new-password-field").value;
 
         //Save account data to localstorage
-        localStorage.setItem(username, password);
-        //set logged in;
-        localStorage.setItem("logged_in", username);            
-        alert("Success"); //Debug
-        window-location.replace("index.html");
+        if (username in localStorage)
+        {
+            alert("Username is already taken!");
+            document.getElementById("new-username-field").value = "";
+            document.getElementById("new-password-field").value = "";
+        }
+        else
+        {
+            localStorage.setItem(username, password);
+            //set logged in;
+            localStorage.setItem("logged_in", username);            
+            alert("Success"); //Debug
+            window-location.replace("index.html");
+        }
     }
     else//if event is unkown--------------------------------------------------------------
     {
