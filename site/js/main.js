@@ -1,46 +1,34 @@
-document.addEventListener("DOMContentLoaded", HandleEvent("check_log_status"))
-
-function HandleEvent(event) //eventHandler
-{
-    
-    if (event === "check_log_status")//---------------------------------------------
-    {
-        if ("logged_in" in localStorage)
-        {
-            if (localStorage.getItem("logged_in") !== "")
-            {
+function HandleEvent(event) {
+    if (event === "check_log_status") {
+        if ("logged_in" in localStorage) {
+            if (localStorage.getItem("logged_in") === "") {
+                document.getElementById("logged_in_page").style.display = 'block';
+                document.getElementById("log_in_link").style.display = 'block'; // Show login link
+            } else {
                 HandleEvent("logged_in");
             }
-            else
-            {
-                document.getElementById("logged_in_page").style.display = 'block';
-            }
-        }
-        else
-        {
+        } else {
             document.getElementById("logged_in_page").style.display = 'block';
+            document.getElementById("log_in_link").style.display = 'block'; // Show login link
         }
-    }
-    else if (event === "logged_in")//------------------------------------------------
-    {
-        //show logged in elements
+    } else if (event === "logged_in") {
+        // Show logged in elements
         document.getElementById("logged_in_page").style.display = 'block';
 
-        //hide
+        // Hide login link
         document.getElementById("log_in_link").style.display = 'none';
 
-        //set the welcome text
+        // Set the welcome text
         document.getElementById("username-text").textContent = "Welcome, " + localStorage.getItem("logged_in") + "!";
-    }
-    else if (event === "log_out")
-    {
-        //hide logged in elements
+    } else if (event === "log_out") {
+        // Hide logged in elements
         document.getElementById("logged_in_page").style.display = 'none';
 
+        // Show login link
+        document.getElementById("log_in_link").style.display = 'block';
+
         localStorage.setItem("logged_in", "");
-    }
-    else//if event is unkown--------------------------------------------------------------
-    {
+    } else {
         document.write("Error 404 Unexpected event call");
     }
 }
