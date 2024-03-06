@@ -10,12 +10,21 @@
     <script src="js/main.js"></script>
   </head>
   <body>
-    <form id="log-in-page">
-      <p id="username-text" hidden>null</p>
+    <div id="log-in-page">
       <input id="username-field" type="text" placeholder="Enter your username" value=""/>
-      <input id="password-field" type="text" placeholder="Enter your password" value=""/>
-      <input id="log-in-button" type="submit" value="Log in" onClick='HandleEvent("log_in_attempt")'/>
-    </form>
+      <input id="password-field" type="password" placeholder="Enter your password" value=""/>
+      <button id="log-in-button" onClick='HandleEvent("log_in_attempt")'>Log in</button>
+    </div>
+    <br>
+    <br>
+    <div id="register-page">
+      <input id="new-username-field" type="text" placeholder="Enter your username" value=""/>
+      <input id="new-password-field" type="password" placeholder="Enter your password" value=""/>
+      <button id="log-in-button" onClick='HandleEvent("create-account")'>Register</button>
+    </div>
+    <div>
+      <p id="username-text">null</p>
+    </div>
     <header class="header">
       <h1 class="heading">
         John & Jane
