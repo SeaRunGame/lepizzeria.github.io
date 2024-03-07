@@ -1,5 +1,10 @@
 document.addEventListener("DOMContentLoaded", HandleEvent("check_log_status"))
 
+function removeSpaces(input) {
+    // Replace all spaces in the input value with an empty string
+    input.value = input.value.replace(/\s/g, '');
+  }
+
 function HandleEvent(event) //eventHandler
 {
     if (event === "log_in_attempt") //log in event-----------------------------------
