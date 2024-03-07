@@ -4,7 +4,7 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("img/LePizzeriaJPG.jpg");
+    background-image: url("../img/LePizzeriaJPG.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
