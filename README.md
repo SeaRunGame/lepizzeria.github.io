@@ -1,1 +1,2 @@
-https://lepizzeria.github.io/
+lepizzeria.github.io/site
+/index.html
