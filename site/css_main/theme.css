@@ -1,5 +1,4 @@
 *{
-    font-family: 'Quicksand', sans-serif;
     font-size: 16px;
     color: #222;
 }
@@ -17,31 +16,41 @@ html, body{
     background-size: 100px 106px;
     position: relative;
     width: auto;
-    height: 106px; /* Adjust as needed */
-    padding-left: 148px; /* Adjust for leftCorner width */
+    height: 106px;
+    padding-left: 148px; 
 }
-.background1{
+
+.background1 {
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    height: auto;
+    align-items: flex-start;
     background-color: orange;
-    background-size: 500px 500px;
     overflow: hidden;
 }
 
 .leftAlign,
 .rightAlign {
-    display: inline-block;
-    vertical-align: top;
-    border: none;
+    width: 50%; 
+    height: auto;
     box-sizing: border-box;
-}
-
-.leftAlign {
-    width: 50%;
     padding: 10px;
 }
 
 .rightAlign {
-    width: 50%;
-    padding: 10px;
+    position: relative; 
+    text-align: center; 
+}
+
+.rightAlign h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    width: 100%;
+    font-size: large;
 }
 
 .row_right {
