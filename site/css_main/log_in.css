@@ -14,3 +14,10 @@ body, html {
     flex-direction: column;
     align-items: center;
 }
+
+.button_link {
+    background-color: transparent;
+    color: blue;
+    border: 0px;
+    cursor: pointer;
+}

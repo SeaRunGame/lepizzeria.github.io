@@ -39,6 +39,8 @@ function HandleEvent(event) //eventHandler
                 window-location.replace("index.html");
             }
         }
+        document.getElementById("log-in-page").style.display = "block";
+        document.getElementById("register-page").style.display = "none";
     }
     else if (event === "save_account_data") //save account data event-------------------------
     {
@@ -60,6 +62,16 @@ function HandleEvent(event) //eventHandler
             localStorage.setItem("logged_in", username);
             window-location.replace("index.html");
         }
+    }
+    else if (event === "switch_to_register")
+    {
+        document.getElementById("log-in-page").style.display = "none";
+        document.getElementById("register-page").style.display = "block";
+    }
+    else if (event === "switch_to_login")
+    {
+        document.getElementById("log-in-page").style.display = "block";
+        document.getElementById("register-page").style.display = "none";
     }
     else//if event is unkown--------------------------------------------------------------
     {

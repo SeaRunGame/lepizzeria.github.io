@@ -1,23 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="fi">
     <head>
         <title>Log in</title>
-        <script src="js/log_in.js"></script>
         <link rel="stylesheet" type="text/css" href="css_main/log_in.css"/>
     </head>
     <body>
         <div class="center">
-            <h1>Log in</h1>
+
             <div id="log-in-page">
-                <input id="username-field" type="text" placeholder="Enter your username" value=""/>
-                <input id="password-field" type="password" placeholder="Enter your password" value=""/>
-                <button id="log-in-button" onClick='HandleEvent("log_in_attempt")'>Log in</button>
+                <h1 class="center">Kirjaudu sis&auml;&auml;n</h1>
+                <form onsubmit="return false;">
+                    <input id="username-field" type="text" placeholder="Sy&ouml;t&auml; k&auml;ytt&auml;j&auml;nimesi" value=""/>
+                    <input id="password-field" type="password" placeholder="Sy&ouml;t&auml; salasanasi" value=""/>
+                    <input id="log-in-button" type="submit" onClick='HandleEvent("log_in_attempt")' value="Kirjaudu sis&auml;&auml;n"/>
+                </form>
+                <br>
+                <div class="center">
+                    <button id="link-to-register" class="button_link" onClick='HandleEvent("switch_to_register")'><i>Ei tili&auml;? Rekister&ouml;idy t&auml;&auml;lt&auml;</i></button>
+                </div>
             </div>
-            <h1>Or register</h1>
+
             <div id="register-page">
-                <input id="new-username-field" type="text" placeholder="Enter your username" value=""/>
-                <input id="new-password-field" type="password" placeholder="Enter your password" value=""/>
-                <button id="log-in-button" onClick='HandleEvent("create-account")'>Register</button>
+                <h1 class="center">Rekister&ouml;idy</h1>
+                <form onsubmit="return false;">
+                    <input id="new-username-field" type="text" placeholder="Sy&ouml;t&auml; k&auml;ytt&auml;j&auml;nimesi" value=""/>
+                    <input id="new-password-field" type="password" placeholder="Sy&ouml;t&auml; salasanasi" value=""/>
+                    <input id="register-button" type="submit" onClick='HandleEvent("create-account")' value="Rekister&ouml;idy"/>
+                </form>
+                <br>
+                <div class="center">
+                    <button id="link-to-login" class="button_link" onClick='HandleEvent("switch_to_login")'><i>Onko sinulla jo tili? Kirjaudu sis&auml;&auml;n t&auml;&auml;lt&auml;</i></button>
+                </div>
+            </div>
+
         </div>
+        <script src="js/log_in.js"></script>
     </body>
 </html>
