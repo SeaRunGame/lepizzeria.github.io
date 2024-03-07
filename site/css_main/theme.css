@@ -14,9 +14,9 @@ html, body{
     justify-content: flex-end;
     align-items: center;
     background-color: rgb(73, 73, 73);
-    background-size: 150px 106px;
+    background-size: 100px 106px;
     position: relative;
-    width: 89%;
+    width: auto;
     height: 106px; /* Adjust as needed */
     padding-left: 148px; /* Adjust for leftCorner width */
 }
@@ -33,9 +33,9 @@ html, body{
 }
 
 .row_right {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+    position: absolute;
+    bottom: -14px;
+    height: 110px;
 }
 
 .leftCorner {
@@ -50,7 +50,7 @@ html, body{
 .MenuButton,
 .CreateButton {
     position: absolute;
-    top: 0;
+    top: 1;
     height: 110px;
     border: none;
     border-radius: 10px;
