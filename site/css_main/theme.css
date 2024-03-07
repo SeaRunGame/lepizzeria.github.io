@@ -16,6 +16,16 @@ html, body{
     background-size: 200px 200px;
 }
 
+.leftCorner {
+    float: left;
+}
+
+.row_right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
 #username-text {
     color: rgb(255, 89, 24);
 }
