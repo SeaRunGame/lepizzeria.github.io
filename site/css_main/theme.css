@@ -20,9 +20,10 @@ html, body{
     background-size: 500px 500px;
 }
 .leftAlign {
-    position: absolute;
-    top: auto;
-    align-items: start;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    border: none;
 }
 .leftCorner {
     position: absolute;
