@@ -8,6 +8,11 @@ html, body{
     height: 100vh;
     text-align: center;
 }
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
 .header{
     background-image: url(./img/LePizzeriaJPG.jpg);
     background-repeat: no-repeat;
