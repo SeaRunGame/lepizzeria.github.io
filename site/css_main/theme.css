@@ -17,6 +17,7 @@ html, body{
 }
 .background1{
     background-color: orange;
+    background-size: 500px 500px;
 }
     
 .leftCorner {
