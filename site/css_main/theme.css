@@ -14,8 +14,11 @@ html, body{
     justify-content: flex-end;
     align-items: center;
     background-color: rgb(73, 73, 73);
-    background-size: 200px 200px;
-    padding: auto;
+    background-size: 150px 106px;
+    position: relative;
+    width: 89%;
+    height: 106px; /* Adjust as needed */
+    padding-left: 148px; /* Adjust for leftCorner width */
 }
 .background1{
     background-color: orange;
@@ -39,53 +42,34 @@ html, body{
     position: absolute;
     top: 0;
     left: 0;
-    right: auto;
     width: 148px;
     height: 106px;
     cursor: pointer;
 }
 
-
-.MenuButton {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    border: none;
-    margin-right: 100px;
-}
-
-.MenuButton_2 {
-    top: auto;
-    left: auto;
-    background-color: transparent;
+.MenuButton,
+.CreateButton {
+    position: absolute;
+    top: 0;
+    height: 110px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     font-size: 40px;
-    width: 50px;
-    height: 110px;
     color: white;
+}
+
+
+.MenuButton {
+    left: 175px;
+    background-color: transparent;
+    width: 30px;
 }
 
 .CreateButton {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    border: none;
-    margin-right: 500px;
-}
-
-.CreateButton_2 {
-    top: auto;
-    left: auto;
+    left: 300px;
     background-color: transparent;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 40px;
     width: 310px;
-    height: 110px;
-    color: white;
 }
 
 #username-text {
