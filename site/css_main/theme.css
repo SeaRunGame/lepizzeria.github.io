@@ -32,16 +32,21 @@ html, body{
     cursor: pointer;
 }
 
+.row_right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
 .MenuButton {
     display: flex;
     align-items: center;
-    flex-direction: row;
     justify-content: flex-start;
     border: none;
+    margin-right: 20px;
 }
 
 .MenuButton_2 {
-    position: absolute;
     top: auto;
     left: auto;
     background-color: transparent;
@@ -57,13 +62,12 @@ html, body{
 .CreateButton {
     display: flex;
     align-items: center;
-    flex-direction: row;
     justify-content: flex-end;
     border: none;
+    margin-right: 20px;
 }
 
 .CreateButton_2 {
-    position: absolute;
     top: auto;
     left: auto;
     background-color: transparent;
@@ -74,12 +78,6 @@ html, body{
     width: 360px;
     height: 110px;
     color: white;
-}
-
-.row_right {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
 }
 
 #username-text {
