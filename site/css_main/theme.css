@@ -21,6 +21,7 @@ html, body{
 }
 .leftAlign {
     position: absolute;
+    top: auto;
     align-items: start;
 }
 .leftCorner {
