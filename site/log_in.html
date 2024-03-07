@@ -9,9 +9,11 @@
 
             <div id="log-in-page">
                 <h1 class="center">Kirjaudu sis&auml;&auml;n</h1>
-                <form onsubmit="return false;">
+                <form onsubmit="return false;" class="center">
                     <input id="username-field" type="text" placeholder="Sy&ouml;t&auml; k&auml;ytt&auml;j&auml;nimesi" value=""/>
+                    <br>
                     <input id="password-field" type="password" placeholder="Sy&ouml;t&auml; salasanasi" value=""/>
+                    <br>
                     <input id="log-in-button" type="submit" onClick='HandleEvent("log_in_attempt")' value="Kirjaudu sis&auml;&auml;n"/>
                 </form>
                 <br>
@@ -22,13 +24,18 @@
 
             <div id="register-page">
                 <h1 class="center">Rekister&ouml;idy</h1>
-                <form onsubmit="return false;">
+                <form onsubmit="return false;" class="center">
                     <input id="new-username-field" type="text" placeholder="Sy&ouml;t&auml; k&auml;ytt&auml;j&auml;nimesi" value=""/>
+                    <br>
                     <input id="new-password-field" type="password" placeholder="Sy&ouml;t&auml; salasanasi" value=""/>
+                    <br>
                     <input id="register-button" type="submit" onClick='HandleEvent("create-account")' value="Rekister&ouml;idy"/>
                 </form>
                 <br>
                 <div class="center">
+                    Huomioithan, ett&auml; k&auml;ytt&auml;j&auml;nimesi eik&auml; salasanasi voi sis&auml;lt&auml;&auml; v&auml;lily&ouml;ntej&auml;.
+                    <br>
+                    <br>
                     <button id="link-to-login" class="button_link" onClick='HandleEvent("switch_to_login")'><i>Onko sinulla jo tili? Kirjaudu sis&auml;&auml;n t&auml;&auml;lt&auml;</i></button>
                 </div>
             </div>
