@@ -33,6 +33,40 @@ function HandleEvent(event)
         document.getElementById("log_in_link").style.display = 'block';
 
         localStorage.setItem("logged_in", "");
+    }
+    else if (event === "gotoPizza")
+    {
+        const dropDown = document.getElementById("pizza_dropdown");
+        const pizza_id = dropDown.value;
+
+        if (pizza_id === "pizza_1")
+        {
+            window-location.replace("pizza_1.html");
+        }
+        else if (pizza_id === "pizza_2")
+        {
+            window-location.replace("pizza_2.html");
+        }
+        else if (pizza_id === "pizza_3")
+        {
+            window-location.replace("pizza_3.html");
+        }
+        else if (pizza_id === "pizza_4")
+        {
+            window-location.replace("pizza_4.html");
+        }
+        else if (pizza_id === "pizza_5")
+        {
+            window-location.replace("pizza_5.html");
+        }
+        else if (pizza_id === "pizza_6")
+        {
+            window-location.replace("pizza_6.html");
+        }
+        else
+        {
+            window-location.replace("index.html");
+        }
     } 
     else 
     {

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>LePizzeria - luo oma pizzasi!</title>
+    <title>LePizzeria</title>
     <link rel="stylesheet" type="text/css" href="css_main/theme.css"> 
     <link rel="stylesheet" type="text/css" href="./icons/css/all.min.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
@@ -15,12 +15,17 @@
           <img src="img/LePizzeriaJPG_2.jpg" width="148" height="106"/>
         </a>
       </div>
-      <div class="MenuButton">
-        <button class="MenuButton_2">Menu</button>
-      </div>
-      <div class="CreateButton">
-        <button class="CreateButton_2">Luo oma pizzasi</button>
-      </div>
+      <button hidden class="MenuButton">Menu</button>
+      <select class="MenuButton" id="pizza_dropdown" name="pizzas" size="1" onchange='HandleEvent("gotoPizza")'>
+        <option value="null">Select pizza</option>
+        <option value="pizza_1">Pizza 1</option>
+        <option value="pizza_2">Pizza 2</option>
+        <option value="pizza_3">Pizza 3</option>
+        <option value="pizza_4">Pizza 4</option>
+        <option value="pizza_5">Pizza 5</option>
+        <option value="pizza_6">Pizza 6</option>
+      </select>
+      <button class="CreateButton" onclick='window-location.replace("create_pizza.html")'>Luo oma pizzasi</button>
       <div id="logged_in_page" class="row_right">
         <p id="username-text">null</p>
         &nbsp;
@@ -32,7 +37,7 @@
         <br>
         <p></p>
       </div>
-      <div id="log_in_link">
+      <div id="log_in_link" class="row_right">
         <p style="background-color: rgb(73, 73, 73);"></p>     
         <a href="log_in.html">
           <img src="img/user-account-icon.jpg" width="182" height="50">
@@ -43,7 +48,8 @@
     </div>
     <header class="header">
       <h1 class="heading">
-        Luo oma pizzasi!
+        Luo oma unelmapizzasi!
+        <i class="heading-subtext"> A slice of life</i>
       </h1>
     </header> 
     <div class="background1"> 

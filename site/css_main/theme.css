@@ -63,11 +63,11 @@ html, body{
 .MenuButton {
     left: 175px;
     background-color: transparent;
-    width: 30px;
+    width: 300px;
 }
 
 .CreateButton {
-    left: 300px;
+    left: 500px;
     background-color: transparent;
     width: 310px;
 }
