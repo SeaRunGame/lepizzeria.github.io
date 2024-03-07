@@ -79,11 +79,15 @@ function HandleEvent(event) //eventHandler
     {
         document.getElementById("log-in-page").style.display = "none";
         document.getElementById("register-page").style.display = "block";
+        document.getElementById("errorText_A").style.display = "none";
+        document.getElementById("errorText_B").style.display = "none";
     }
     else if (event === "switch_to_login")
     {
         document.getElementById("log-in-page").style.display = "block";
         document.getElementById("register-page").style.display = "none";
+        document.getElementById("errorText_A").style.display = "none";
+        document.getElementById("errorText_B").style.display = "none";
     }
     else//if event is unkown--------------------------------------------------------------
     {
