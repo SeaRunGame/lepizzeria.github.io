@@ -24,7 +24,7 @@ function HandleEvent(event)
         document.getElementById("log_in_link").style.display = 'none';
 
         // Set the welcome text
-        document.getElementById("username-text").textContent = "Kiva nähdä taas, " + localStorage.getItem("logged_in") + "!";
+        document.getElementById("username-text").textContent = "Kiva nähdä taas, " + localStorage.getItem("logged_in") + "!\xa0\xa0";
     } 
     else if (event === "log_out") 
     {
