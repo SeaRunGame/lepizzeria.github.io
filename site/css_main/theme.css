@@ -19,7 +19,11 @@ html, body{
     background-color: orange;
     background-size: 500px 500px;
 }
-    
+.leftAlign {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 .leftCorner {
     position: absolute;
     top: 0;
