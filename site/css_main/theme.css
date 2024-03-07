@@ -23,6 +23,25 @@ html, body{
     cursor: pointer;
 }
 
+.MenuButton {
+    position: absolute;
+    top: 0;
+    left: 175px;
+    border: none;
+}
+
+.MenuButton_2 {
+    position: absolute;
+    top: auto;
+    background-color: transparent;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 60px;
+    width: 100px;
+    height: 110px;
+}
+
 .row_right {
     display: flex;
     flex-direction: row;

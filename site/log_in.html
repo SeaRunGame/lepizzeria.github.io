@@ -11,9 +11,9 @@
             <div id="log-in-page" class="center">
                 <h1 class="center">&nbsp;&nbsp;Kirjaudu sis&auml;&auml;n&nbsp;&nbsp;</h1>
                 <form onsubmit="return false;" class="center">
-                    <input oninput="removeSpaces(this)" pattern="^\S*$" id="username-field" type="text" placeholder="Sy&ouml;t&auml; k&auml;ytt&auml;j&auml;nimesi" value=""/>
+                    <input oninput="removeSpaces(this)" id="username-field" type="text" placeholder="Sy&ouml;t&auml; k&auml;ytt&auml;j&auml;nimesi" value=""/>
                     <br>
-                    <input oninput="removeSpaces(this)" pattern="^\S*$" id="password-field" type="password" placeholder="Sy&ouml;t&auml; salasanasi" value=""/>
+                    <input oninput="removeSpaces(this)" id="password-field" type="password" placeholder="Sy&ouml;t&auml; salasanasi" value=""/>
                     <br>
                     <input id="log-in-button" type="submit" onClick='HandleEvent("log_in_attempt")' value=""/>
                     <p id="errorText_A"></p>
@@ -27,9 +27,9 @@
             <div id="register-page">
                 <h1 class="center">Rekister&ouml;idy</h1>
                 <form onsubmit="return false;" class="center">
-                    <input oninput="removeSpaces(this)" pattern="^\S*$" id="new-username-field" type="text" placeholder="Sy&ouml;t&auml; k&auml;ytt&auml;j&auml;nimesi" value=""/>
+                    <input oninput="removeSpaces(this)" id="new-username-field" type="text" placeholder="Sy&ouml;t&auml; k&auml;ytt&auml;j&auml;nimesi" value=""/>
                     <br>
-                    <input oninput="removeSpaces(this)" pattern="^\S*$" id="new-password-field" type="password" placeholder="Sy&ouml;t&auml; salasanasi" value=""/>
+                    <input oninput="removeSpaces(this)" id="new-password-field" type="password" placeholder="Sy&ouml;t&auml; salasanasi" value=""/>
                     <br>
                     <input id="register-button" type="submit" onClick='HandleEvent("create-account")' value=""/>
                     <p id="errorText_B"></p>
