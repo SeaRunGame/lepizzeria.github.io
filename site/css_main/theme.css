@@ -15,7 +15,10 @@ html, body{
     background-color: rgb(73, 73, 73);
     background-size: 200px 200px;
 }
-
+.background1{
+    background-color: orange;
+}
+    
 .leftCorner {
     position: absolute;
     top: 0;
