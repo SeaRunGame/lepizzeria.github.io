@@ -20,6 +20,15 @@ html, body{
     color: rgb(255, 89, 24);
 }
 
+#log-out-button {
+    background-image: url(../img/Log_out_button.png);
+    background-size: cover;
+    background-color: rgb(73, 73, 73);;
+    border: none;
+    width: 125px;
+    height: 40px;
+}
+
 .header{
     background-image: url(https://recipesblob.oetker.fi/assets/935bd3d912cf4142a6e456a592f60551/1272x764/hurtig-og-nem-pizza-web.webp);
     background-repeat: no-repeat;
