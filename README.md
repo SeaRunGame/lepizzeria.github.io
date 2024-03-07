@@ -1,2 +1,1 @@
-lepizzeria.github.io/site
-/index.html
+lepizzeria.github.io/site/index.html
