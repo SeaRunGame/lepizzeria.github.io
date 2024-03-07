@@ -5,10 +5,10 @@
         <link rel="stylesheet" type="text/css" href="css_main/log_in.css"/>
     </head>
     <body>
-        <div class="center">
+        <div class="box">
 
-            <div id="log-in-page">
-                <h1 class="center">Kirjaudu sis&auml;&auml;n</h1>
+            <div id="log-in-page" class="center">
+                <h1 class="center">&nbsp;&nbsp;Kirjaudu sis&auml;&auml;n&nbsp;&nbsp;</h1>
                 <form onsubmit="return false;" class="center">
                     <input id="username-field" type="text" placeholder="Sy&ouml;t&auml; k&auml;ytt&auml;j&auml;nimesi" value=""/>
                     <br>
@@ -19,6 +19,7 @@
                 <br>
                 <div class="center">
                     <button id="link-to-register" class="button_link" onClick='HandleEvent("switch_to_register")'><i>Ei tili&auml;? Rekister&ouml;idy t&auml;&auml;lt&auml;</i></button>
+                    <br>
                 </div>
             </div>
 
@@ -33,10 +34,11 @@
                 </form>
                 <br>
                 <div class="center">
-                    Huomioithan, ett&auml; k&auml;ytt&auml;j&auml;nimesi eik&auml; salasanasi voi sis&auml;lt&auml;&auml; v&auml;lily&ouml;ntej&auml;.
-                    <br>
+                    <pre >Huomioithan, ett&auml; k&auml;ytt&auml;j&auml;nimesi eik&auml; salasanasi 
+           voi sis&auml;lt&auml;&auml; v&auml;lily&ouml;ntej&auml;.</pre>
                     <br>
                     <button id="link-to-login" class="button_link" onClick='HandleEvent("switch_to_login")'><i>Onko sinulla jo tili? Kirjaudu sis&auml;&auml;n t&auml;&auml;lt&auml;</i></button>
+                    <br>
                 </div>
             </div>
 
