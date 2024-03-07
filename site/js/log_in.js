@@ -36,7 +36,7 @@ function HandleEvent(event) //eventHandler
         else
         {
             document.getElementById("errorText_B").style.display = "block";
-            document.getElementById("errorText_B").textContent = "Virheelliset tunnistetiedot";
+            document.getElementById("errorText_B").textContent = 'Virheelliset tunnistetiedot';
         }
     }
     else if (event === "check_log_status")//---------------------------------------------
@@ -63,7 +63,7 @@ function HandleEvent(event) //eventHandler
         if (username in localStorage)
         {
             document.getElementById("errorText_B").style.display = "block";
-            document.getElementById("errorText_B").textContent = "Virheelliset tunnistetiedot";
+            document.getElementById("errorText_B").textContent = 'Virheelliset tunnistetiedot';
             document.getElementById("new-username-field").value = "";
             document.getElementById("new-password-field").value = "";
         }
