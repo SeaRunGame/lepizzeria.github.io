@@ -19,6 +19,37 @@ body {
     align-items: center;
 }
 
+#log-in-button,
+#register-button {
+    background-size: 150px 48px;
+    padding-left: 150px;
+    padding-top: 40px;
+    display: inline-block;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+#log-in-button {
+    background-image: url(../img/Login_button.png);
+    background-repeat: no-repeat;
+    border: none;
+    background-color: transparent;
+    background-position: center;
+}
+
+#register-button {
+    background-image: url(../img/Register_button.png);
+    background-repeat: no-repeat;
+    border: none;
+    background-color: transparent;
+    background-position: center;
+}
+
+#log-in-button:hover,
+#register-button:hover {
+    background-color: lightgrey;
+}
+
 .box {
     background-color: grey;
     width: auto;
