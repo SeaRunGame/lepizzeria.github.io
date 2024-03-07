@@ -12,6 +12,7 @@ html, body{
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    background-color: rgb(73, 73, 73);
 }
 .header{
     background-image: url(https://recipesblob.oetker.fi/assets/935bd3d912cf4142a6e456a592f60551/1272x764/hurtig-og-nem-pizza-web.webp);
