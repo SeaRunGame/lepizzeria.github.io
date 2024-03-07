@@ -39,6 +39,9 @@ html, body{
     position: absolute;
     top: 0;
     left: 0;
+    right: auto;
+    width: 148px;
+    height: 106px;
     cursor: pointer;
 }
 
