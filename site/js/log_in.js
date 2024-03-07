@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", HandleEvent("check_log_status"))
 function removeSpaces(input) {
     // Replace all spaces in the input value with an empty string
     input.value = input.value.replace(/\s/g, '');
+    document.getElementById("errorText_A").style.display = "none";
+    document.getElementById("errorText_B").style.display = "none";
   }
 
 function HandleEvent(event) //eventHandler
@@ -21,7 +23,8 @@ function HandleEvent(event) //eventHandler
         }
         else
         {
-            alert("Account credentials are incorrect");
+            document.getElementById("errorText_A").style.display = "block";
+            document.getElementById("errorText_A").textContent = 'Virheellinen käyttäjänimi tai salasana';
         }
     }
     else if (event === "create-account")//------------------------------------------------
@@ -32,7 +35,8 @@ function HandleEvent(event) //eventHandler
         }
         else
         {
-            alert("invalid credentials");
+            document.getElementById("errorText_B").style.display = "block";
+            document.getElementById("errorText_B").textContent = "Virheelliset tunnistetiedot";
         }
     }
     else if (event === "check_log_status")//---------------------------------------------
@@ -46,6 +50,8 @@ function HandleEvent(event) //eventHandler
         }
         document.getElementById("log-in-page").style.display = "block";
         document.getElementById("register-page").style.display = "none";
+        document.getElementById("errorText_A").style.display = "none";
+        document.getElementById("errorText_B").style.display = "none";
     }
     else if (event === "save_account_data") //save account data event-------------------------
     {
@@ -56,7 +62,8 @@ function HandleEvent(event) //eventHandler
         //Save account data to localstorage
         if (username in localStorage)
         {
-            alert("Username is already taken!");
+            document.getElementById("errorText_B").style.display = "block";
+            document.getElementById("errorText_B").textContent = "Virheelliset tunnistetiedot";
             document.getElementById("new-username-field").value = "";
             document.getElementById("new-password-field").value = "";
         }

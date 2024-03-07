@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fi">
     <head>
+        <meta charset="UTF-8">
         <title>Log in</title>
         <link rel="stylesheet" type="text/css" href="css_main/log_in.css"/>
     </head>
@@ -15,7 +16,7 @@
                     <input oninput="removeSpaces(this)" pattern="^\S*$" id="password-field" type="password" placeholder="Sy&ouml;t&auml; salasanasi" value=""/>
                     <br>
                     <input id="log-in-button" type="submit" onClick='HandleEvent("log_in_attempt")' value=""/>
-                    <br>
+                    <p id="errorText_A"></p>
                 </form>
                 <div class="center">
                     <button id="link-to-register" class="button_link" onClick='HandleEvent("switch_to_register")'><i>Ei tili&auml;? Rekister&ouml;idy t&auml;&auml;lt&auml;</i></button>
@@ -32,6 +33,7 @@
                     <br>
                     <input id="register-button" type="submit" onClick='HandleEvent("create-account")' value=""/>
                     <br>
+                    <p id="errorText_B"></p>
                 </form>
                 <div class="center">
                     <pre > Huomioithan, ett&auml; k&auml;ytt&auml;j&auml;nimesi eik&auml; salasanasi 
