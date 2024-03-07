@@ -12,8 +12,10 @@ html, body{
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    align-items: center;
     background-color: rgb(73, 73, 73);
     background-size: 200px 200px;
+    padding: auto;
 }
 .background1{
     background-color: orange;
@@ -21,15 +23,10 @@ html, body{
 }
 .leftAlign {
     display: flex;
+    justify-content: right;
     flex-direction: row;
     justify-content: flex-start;
     border: none;
-}
-.leftCorner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    cursor: pointer;
 }
 
 .row_right {
@@ -37,6 +34,14 @@ html, body{
     flex-direction: row;
     justify-content: flex-end;
 }
+
+.leftCorner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+
 
 .MenuButton {
     display: flex;
