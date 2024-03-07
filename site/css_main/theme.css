@@ -24,22 +24,47 @@ html, body{
 }
 
 .MenuButton {
-    position: absolute;
-    top: 0;
-    left: 175px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
     border: none;
 }
 
 .MenuButton_2 {
     position: absolute;
     top: auto;
+    left: auto;
     background-color: transparent;
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    font-size: 45px;
+    font-size: 40px;
     width: 100px;
     height: 110px;
+    color: white;
+}
+
+.CreateButton {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-end;
+    border: none;
+}
+
+.CreateButton_2 {
+    position: absolute;
+    top: auto;
+    left: auto;
+    background-color: transparent;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 40px;
+    width: 360px;
+    height: 110px;
+    color: white;
 }
 
 .row_right {
