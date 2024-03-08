@@ -93,7 +93,8 @@ html, body{
 }
 
 #username-text {
-    color: rgb(255, 89, 24);
+    color: white;
+    font-size: large;
 }
 
 #log-out-button {
