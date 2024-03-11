@@ -30,6 +30,21 @@ html, body{
     overflow: hidden;
 }
 
+.image-text-section {
+    display: flex;
+    flex-direction: row;
+}
+
+.image-container {
+    flex: 1;
+    padding: 20px;
+}
+
+.text-container {
+    flex: 1;
+    padding: 20px;
+}
+
 .leftAlign,
 .rightAlign {
     width: 50%; 
