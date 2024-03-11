@@ -70,24 +70,31 @@
         </form>
 
         <form id="pizza_form_2" onsubmit="return false">
-            <p class="normal-text">Yhteenveto tilauksestasi</p>
+            <p class="normal-text">Olet tilaamassa</p>
             <p id="pizza" class="smaller-text"></p>
             <p id="amount" class="smaller-text"></p>
             <p class="normal-text">Toimitustapa</p>
-            <input type="radio" id="Nouto" value="Nouto" name="delivery" onchange="HandleEvent('HideDelivery')">
+            <input type="radio" id="Nouto" value="Nouto" name="delivery" onchange="HandleEvent('HideDelivery')" checked>
             <label for="Nouto">Nouto</label>
             <br>
             <input type="radio" id="Kuljetus" value="Kuljetus" name="delivery" onchange="HandleEvent('ShowDelivery')">
             <label for="Kuljetus">Kuljetus</label>
             <br>
             <br>
-            <br>
             <input class="center" id="deliveryDiv" type="text" value="" placeholder="Syötä osoitteesi" style="display: none;">
             <br>
             <br>
-            <br>
-            <input type="submit" onclick='HandleEvent("order")' value="Viimeistele tilaus">
+            <input type="submit" onclick= "HandleEvent('order_pizza_next_2')" value="Viimeistele tilaus">
         </form>
+
+        <div id="pizza_form_3" style="display: none;">
+            <p class="normal-text">Yhteenveto</p>
+            <p class="smaller-text" id="item"></p>
+            <p class="smaller-text" id="amount"></p>
+            <p class="smaller-text" id="deliveryType"></p>
+            <p class="smaller-text" id="deliveryLocation"></p>
+            <p class="smaller-text" id="total"></p>
+        </div>
     </section>
 
 

@@ -3,8 +3,6 @@ document.addEventListener("DOMContentLoaded", HandleEvent("check_log_status"))
 function HandleEvent(event) 
 {
     if (event === "check_log_status") {
-
-        document.getElementById("pizza_form_2").style.display = 'none';
         if ("logged_in" in localStorage && localStorage.getItem("logged_in") !== "") 
         {
             // User is logged in
@@ -89,7 +87,7 @@ function HandleEvent(event)
             }
             else
             {
-                localStorage.setItem("pizza_id", pizza_id);
+                localStorage.setItem("pizza", dropDown.querySelector('option[value="' + pizza_id + '"]').textContent);
                 localStorage.setItem("amount", amount);
                 document.getElementById("pizza_form_1").style.display = "none";
                 document.getElementById("pizza_form_2").style.display = "block";
@@ -98,6 +96,48 @@ function HandleEvent(event)
 
             }
         }
+    }
+    else if (event === "order_pizza_next_2")
+    {
+        document.getElementById("deliveryLocation").style.display = "none";
+        var pizza = localStorage.getItem("pizza");
+        var amount = localStorage.getItem("amount")
+
+        if (document.getElementById("deliveryDiv").style.display === "block")
+        {
+            var deliveryType = "Kuljetus";
+            if (document.getElementById("deliveryDiv").value !== "")
+            {
+                var deliverLocation = document.getElementById("deliveryDiv").value;
+            }
+            else
+            {
+                alert("Anna osoite");
+            }
+        }
+        else
+        {
+            var deliveryType = "Nouto";
+            var deliverLocation = "null";
+            document.getElementById("deliveryLocation").style.display = "block";
+        }
+
+        document.getElementById("pizza_form_2").style.display = "none";
+        document.getElementById("pizza_form_3").style.display = "block";
+
+        var total = amount * 15;
+        
+        if (deliveryType === "Kuljetus")
+        {
+            total += 5;
+        }
+
+
+        document.getElementById("item").textContent = "Tuote: " + pizza;
+        document.getElementById("amount").textContent = "Määrä: " + amount;
+        document.getElementById("deliveryType").textContent = "Toimitustapa: " + deliveryType;
+        document.getElementById("deliveryLocation").textContent = "Toimitusosoite: " + deliveryLocation;
+        document.getElementById("total").textContent = "Hinta yhteensä: " + total + "€";
     }
     else if (event === "ShowDelivery")
     {
