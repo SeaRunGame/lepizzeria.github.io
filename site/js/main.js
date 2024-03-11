@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", HandleEvent("check_log_status"))
 function HandleEvent(event) 
 {
     if (event === "check_log_status") {
+
+        document.getElementById("pizza_form_2").style.display = 'none';
         if ("logged_in" in localStorage && localStorage.getItem("logged_in") !== "") 
         {
             // User is logged in
@@ -67,11 +69,49 @@ function HandleEvent(event)
         {
             window-location.replace("index.html");
         }
-    } 
+    }
+    else if (event === "order_pizza_next")
+    {
+        const dropDown = document.getElementById("pizza_order_dropdown");
+        const pizza_id = dropDown.value;
+
+        var amount = document.getElementById("amount_field").value;
+
+        if (pizza_id === "null")
+        {
+            alert("Ole hyvä ja valitse pizza");
+        }
+        else
+        {
+            if (amount === "" || amount === "0" || Number(amount) < 0)
+            {
+                alert("Ole hyvä ja anna järkevä määrä");
+            }
+            else
+            {
+                localStorage.setItem("pizza_id", pizza_id);
+                localStorage.setItem("amount", amount);
+                document.getElementById("pizza_form_1").style.display = "none";
+                document.getElementById("pizza_form_2").style.display = "block";
+                document.getElementById("pizza").textContent = "Pizza: " + dropDown.querySelector('option[value="' + pizza_id + '"]').textContent;
+                document.getElementById("amount").textContent = "Määrä: " + amount;
+
+            }
+        }
+    }
+    else if (event === "ShowDelivery")
+    {
+        document.getElementById("deliveryDiv").style.display = "block";
+    }
+    else if (event === "HideDelivery")
+    {
+        document.getElementById("deliveryDiv").style.display = "none";
+    }
     else 
     {
-        document.write("Error 404 Unexpected event call");
+        document.write("Error 404_1 Unkown event call");
     }
 }
+
 
 

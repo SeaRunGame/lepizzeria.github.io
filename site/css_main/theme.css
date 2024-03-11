@@ -23,14 +23,32 @@ html, body{
     padding-left: 148px; 
 }
 
-.background1 {
-    display: flex;
-    justify-content: space-between;
+.center {
+    align-items: center;
+}
+
+#deliveryDiv {
     width: auto;
-    height: auto;
-    align-items: flex-start;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.normal-text {
+    font-size: xx-large;
+}
+
+.smaller-text {
+    font-size: x-large;
+}
+
+.big {
+    font-size: 70px;
+}
+
+.orange-bg {
     background-color: orange;
-    overflow: hidden;
 }
 
 .image-text-section {
