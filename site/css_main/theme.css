@@ -33,13 +33,10 @@ html, body{
 .image-text-section {
     display: flex;
     flex-direction: row;
+    background-color: orange;
 }
 
-.image-container {
-    flex: 1;
-    padding: 20px;
-}
-
+.image-container,
 .text-container {
     flex: 1;
     padding: 20px;
