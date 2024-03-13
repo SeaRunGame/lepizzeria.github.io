@@ -1,9 +1,17 @@
-document.addEventListener("DOMContentLoaded", HandleEvent("check_log_status"))
+document.addEventListener("DOMContentLoaded", HandleEvent("check_log_status"));
 
 function HandleEvent(event) 
 {
     if (event === "check_log_status") 
     {
+        var path = window.location.pathname;
+        var current_page = path.split("/").pop().replace(".html", "");
+        
+        if (current_page !== "index" && current_page !== "log_in" && current_page !== "create_pizza" && current_page !== "order_pizza")
+        {
+            localStorage.setItem("current_page", current_page);
+        }
+
         if ("logged_in" in localStorage && localStorage.getItem("logged_in") !== "") 
         {
             // User is logged in
@@ -131,11 +139,20 @@ function HandleEvent(event)
             document.getElementById("pizza_form_2").style.display = "none";
             document.getElementById("pizza_form_3").style.display = "block";
 
-            var total = Number(amount) * 15;
+            var total = Number(amount);
+            var delivery_time = Number(amount) * 15;
+            var in_hours = false;
             
             if (deliveryType === "Kuljetus")
             {
                 total += 5;
+                delivery_time += 120;
+            }
+
+            if (delivery_time >= 60)
+            {
+                delivery_time = delivery_time / 60;
+                in_hours = true;
             }
 
 
@@ -143,6 +160,7 @@ function HandleEvent(event)
             document.getElementById("amount_final").textContent = "Määrä: " + amount;
             document.getElementById("deliveryType").textContent = "Toimitustapa: " + deliveryType;
             document.getElementById("deliveryLocation").textContent = "Toimitusosoite: " + deliverLocation;
+            document.getElementById("delivery-time").textContent = "Arvioitu toimitusaika: " + delivery_time + ((in_hours) ? " tuntia" : " minuuttia");
             document.getElementById("total").textContent = "Hinta yhteensä: " + total + "€";
         }
     }
@@ -153,6 +171,15 @@ function HandleEvent(event)
     else if (event === "HideDelivery")
     {
         document.getElementById("deliveryDiv").style.display = "none";
+    }
+    else if (event === "Order")
+    {
+        document.getElementById("pizza_form_3").style.display = "none";
+        document.getElementById("loader").style.display = "block";
+        setTimeout(function() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("order-finish").style.display = "block";
+        }, 3000);
     }
     else 
     {

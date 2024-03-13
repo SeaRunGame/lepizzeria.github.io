@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", HandleEvent("check_log_status"))
+document.addEventListener("DOMContentLoaded", HandleEvent("check_log_status"));
 
 function removeSpaces(input) {
     // Replace all spaces in the input value with an empty string

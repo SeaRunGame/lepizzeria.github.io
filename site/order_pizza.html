@@ -95,11 +95,24 @@
             <p class="smaller-text" id="deliveryLocation"></p>
             <p class="smaller-text" id="total"></p>
             <br>
-            <button>Tilaa nyt</button>
+            <p class="smaller-text" id="delivery-time"></p>
+            <br>
+            <button onclick="HandleEvent('Order')">Tilaa nyt</button>
+        </div>
+
+        <div id="loader" class="loader" style="display: none;"></div>
+
+        <div id="order-finish" style="display: none;">
+          <p class="smaller-text">Onneksi olkoon, tilaus onnistui!</p>
+          <button class="button_link" onclick="window-location.replace('index.html')">Palaa takaisin</button>
+        </div>
+
+        <div id="not_logged_in" style="display: none;">
+          <p class="smaller-text">Jotta voisit tilata pizzojamme, kirjaudu sisään tai rekisteröidy.</p>
         </div>
     </section>
 
-
+    <script src="js/order.js"></script>
     <script src="js/main.js"></script>
     <script src="./js/smooth-scroll.polyfills.min.js"></script>
     <script defer>
