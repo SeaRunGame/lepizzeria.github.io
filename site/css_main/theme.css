@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Amethysta&display=swap');
+
+*{
+    font-size: 16px;
+    color: white;
+}
+html, body{
+    background-color: #2D2D2A;
+    margin: 0;
+    height: 100vh;
+    text-align: center;
+    font-family: "Amethysta", serif;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #2D2D2A;
+    background-size: 100px 106px;
+    position: relative;
+    width: auto;
+    height: 106px;
+    padding-left: 148px; 
+}
+
+.center {
+    align-items: center;
+}
+
+#deliveryDiv {
+    width: auto;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.normal-text {
+    font-size: xx-large;
+}
+
+.smaller-text {
+    font-size: x-large;
+}
+
+.big {
+    font-size: 70px;
+}
+
+.orange-bg {
+    background-color: orange;
+}
+
+.image-text-section {
+    display: flex;
+    flex-direction: row;
+    background-color: orange;
+}
+
+.image-container,
+.text-container {
+    flex: 1;
+    padding: 20px;
+}
+
+.leftAlign,
+.rightAlign {
+    width: 50%; 
+    height: auto;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.rightAlign {
+    position: relative; 
+    text-align: center; 
+}
+
+.rightAlign h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    width: 100%;
+    font-size: large;
+}
+
+.row_right {
+    position: absolute;
+    bottom: -14px;
+    height: 110px;
+}
+
+.leftCorner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 148px;
+    height: 106px;
+    cursor: pointer;
+}
+
+.MenuButton,
+.CreateButton {
+    position: absolute;
+    top: 1;
+    height: 110px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 40px;
+    color: white;
+}
+
+.MenuButton {
+    left: 175px;
+    background-color: transparent;
+    width: 300px;
+}
+
+.CreateButton {
+    left: 500px;
+    background-color: transparent;
+    width: 310px;
+}
+
+#username-text {
+    color: white;
+    font-size: large;
+}
+
+#log-out-button {
+    background-image: url(../img/Log_out_button.png);
+    background-size: cover;
+    background-color: rgb(73, 73, 73);;
+    border: none;
+    width: 125px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.header{
+    background-image: url(https://recipesblob.oetker.fi/assets/935bd3d912cf4142a6e456a592f60551/1272x764/hurtig-og-nem-pizza-web.webp);
+    background-repeat: no-repeat;
+    background-position: 50% 60%;
+    background-attachment: scroll;
+    background-size: cover;
+    height: 40vh;
+    margin: 0;
+    padding-top: 60vh;
+}
+.heading {
+    color: #ffffff;
+    display: block;
+    font-family: 'Amethysta', cursive;
+    font-size: 6em;
+    font-weight: normal;
+    text-shadow: 0 0 10px #000;
+}
+.heading-subtext{
+    color: #fff;
+    display: block;
+    font-family: 'Amethysta', cursive;
+    font-size: .6em;
+}
+.fixed-button{
+    background: rgba(20,20,20,.5);
+    border-radius: 1em;
+    bottom: 1em;
+    color: white;
+    font-weight: bold;
+    padding: 1em;
+    position: fixed;
+    right: 1em;
+    text-decoration: none;
+    z-index: 9999;
+}
+.fixed-button::after{
+    content: "\25BE";
+    display: block;
+    font-size: 28px;
+    line-height: 0;
+    margin-bottom: 6px;
+    margin-top: 10px;
+    text-align: center;
+}
+.fixed-button:active,
+.fixed-button:hover{
+    background: rgba(20,20,20,.9);
+}
+.section{
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 1em 2.4em;
+}
+.sub-heading{
+    font-family: 'Amethysta', cursive;
+    font-size: 3em;
+    margin-top: 2em;
+}
+.details{
+    margin: 0 auto 8em;
+}
+.details-heading{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.fas {
+    font-size: 3em;
+    opacity: .8;
+}
+.resort-image{
+    width: 100%
+}
+
+.button_link {
+    background-color: transparent;
+    color: blue;
+    border: 0px;
+    cursor: pointer;
+}
+
+.loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    margin: -76px 0 0 -76px;
+    border: 16px solid transparent;
+    border-top: 16px solid black;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 1.5s linear infinite;
+}
+.pmenu {
+    font-size: 40px;
+}
+.row2 {
+    display: flex;
+    gap:50px;
+    padding-left: 80px;
+
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media only screen and (max-width: 600px) {
+    .heading {
+        font-size: 4em;
+    }
+  }

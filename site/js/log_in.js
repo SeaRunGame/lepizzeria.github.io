@@ -1,4 +1,11 @@
-document.addEventListener("DOMContentLoaded", HandleEvent("check_log_status"))
+document.addEventListener("DOMContentLoaded", HandleEvent("check_log_status"));
+
+function removeSpaces(input) {
+    // Replace all spaces in the input value with an empty string
+    input.value = input.value.replace(/\s/g, '');
+    document.getElementById("errorText_A").style.display = "none";
+    document.getElementById("errorText_B").style.display = "none";
+  }
 
 function HandleEvent(event) //eventHandler
 {
@@ -9,15 +16,15 @@ function HandleEvent(event) //eventHandler
         var password = document.getElementById("password-field").value;
 
         //if username exists
-        if (username in localStorage)
+        if (username in localStorage && localStorage.getItem(username) === password)
         {
             localStorage.setItem("logged_in", username);         
-            alert("Success"); //Debug
             window-location.replace("index.html");
         }
         else
         {
-            alert("Account credentials are incorrect");
+            document.getElementById("errorText_A").style.display = "block";
+            document.getElementById("errorText_A").textContent = 'Virheellinen käyttäjänimi tai salasana';
         }
     }
     else if (event === "create-account")//------------------------------------------------
@@ -28,7 +35,8 @@ function HandleEvent(event) //eventHandler
         }
         else
         {
-            alert("invalid credentials");
+            document.getElementById("errorText_B").style.display = "block";
+            document.getElementById("errorText_B").textContent = 'Virheelliset tunnistetiedot';
         }
     }
     else if (event === "check_log_status")//---------------------------------------------
@@ -37,27 +45,52 @@ function HandleEvent(event) //eventHandler
         {
             if (localStorage.getItem("logged_in") !== "")
             {
-                alert("Success"); //Debug
-
-                //window-location.replace("index.html");
+                window-location.replace("index.html");
             }
         }
+        document.getElementById("log-in-page").style.display = "block";
+        document.getElementById("register-page").style.display = "none";
+        document.getElementById("errorText_A").style.display = "none";
+        document.getElementById("errorText_B").style.display = "none";
     }
-    else if (event === "save_account_data") //dave account data event-------------------------
+    else if (event === "save_account_data") //save account data event-------------------------
     {
         // Get username and password
         var username = document.getElementById("new-username-field").value;
         var password = document.getElementById("new-password-field").value;
 
         //Save account data to localstorage
-        localStorage.setItem(username, password);
-        //set logged in;
-        localStorage.setItem("logged_in", username);            
-        alert("Success"); //Debug
-        //window-location.replace("index.html");
+        if (username in localStorage)
+        {
+            document.getElementById("errorText_B").style.display = "block";
+            document.getElementById("errorText_B").textContent = 'Käyttäjänimi on jo varattu';
+            document.getElementById("new-username-field").value = "";
+            document.getElementById("new-password-field").value = "";
+        }
+        else
+        {
+            localStorage.setItem(username, password);
+            //set logged in;
+            localStorage.setItem("logged_in", username);
+            window-location.replace("index.html");
+        }
+    }
+    else if (event === "switch_to_register")
+    {
+        document.getElementById("log-in-page").style.display = "none";
+        document.getElementById("register-page").style.display = "block";
+        document.getElementById("errorText_A").style.display = "none";
+        document.getElementById("errorText_B").style.display = "none";
+    }
+    else if (event === "switch_to_login")
+    {
+        document.getElementById("log-in-page").style.display = "block";
+        document.getElementById("register-page").style.display = "none";
+        document.getElementById("errorText_A").style.display = "none";
+        document.getElementById("errorText_B").style.display = "none";
     }
     else//if event is unkown--------------------------------------------------------------
     {
-        document.write("Error 404 Unexpected event call");
+        document.write("Error 404_1 Unexpected unknown event call");
     }
 }
