@@ -63,6 +63,11 @@
             </select>
             <p class="normal-text">Valitse määrä</p>
             <input id="amount_field" type="number" value="1" placeholder="Syötä määrä"/>
+            <p class="normal-text">Erityisruokavaliot</p>
+            <input id="gluten-free" type="checkbox" name="gluten-free"/>
+            <label for="gluten-free">Gluteeniton pohja (+2€)</label>
+            <p class="normal-text">Lisätiedot</p>
+            <input style="width: 390px;" id="additional" type="text" value="" placeholder="Mitä haluat meidän huomioivan pizzaa tehdessämme?" />
             <br>
             <br>
             <br>
@@ -91,6 +96,7 @@
             <p class="normal-text">Yhteenveto</p>
             <p class="smaller-text" id="item"></p>
             <p class="smaller-text" id="amount_final"></p>
+            <p class="smaller-text" id="special"></p>
             <p class="smaller-text" id="deliveryType"></p>
             <p class="smaller-text" id="deliveryLocation"></p>
             <p class="smaller-text" id="total"></p>

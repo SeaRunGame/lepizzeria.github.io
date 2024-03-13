@@ -81,6 +81,17 @@ function HandleEvent(event)
     {
         const dropDown = document.getElementById("pizza_order_dropdown");
         const pizza_id = dropDown.value;
+        var checkbox = document.getElementById("gluten-free");
+        var isGlutenFree = checkbox.checked;
+
+        if (isGlutenFree)
+        {
+            localStorage.setItem("gluten-free", "true");
+        }
+        else
+        {
+            localStorage.setItem("gluten-free", "false");
+        }
 
         var amount = document.getElementById("amount_field").value;
 
@@ -155,9 +166,12 @@ function HandleEvent(event)
                 in_hours = true;
             }
 
+            total += (localStorage.getItem("gluten-free") === "true") ? 2 : 0
+
 
             document.getElementById("item").textContent = "Tuote: " + pizza;
             document.getElementById("amount_final").textContent = "Määrä: " + amount;
+            document.getElementById("special").textContent = "Erityishuomiot: " + ((localStorage.getItem("gluten-free") === "true") ? "Gluteeniton pohja" : "Ei ole");
             document.getElementById("deliveryType").textContent = "Toimitustapa: " + deliveryType;
             document.getElementById("deliveryLocation").textContent = "Toimitusosoite: " + deliverLocation;
             document.getElementById("delivery-time").textContent = "Arvioitu toimitusaika: " + delivery_time + ((in_hours) ? " tuntia" : " minuuttia");
