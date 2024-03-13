@@ -183,7 +183,7 @@ function HandleEvent(event)
     }
     else 
     {
-        document.write("Error 404_1 Unkown event call");
+        document.write("Error 404_1 Unexpected unknown event call");
     }
 }
 
