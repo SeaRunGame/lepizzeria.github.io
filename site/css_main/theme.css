@@ -239,21 +239,25 @@ html, body{
     font-size: 40px;
 }
 .row2 {
-    border-radius: 100px;
-    color:white;
     display: flex;
-    gap:50px;
-    padding-left: 80px;
-
+    flex-direction: row;
+    width: auto;
+    height: auto;
 }
 .pvalinta {
     color:white;
+
 }
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-
+.pimg {
+    flex: 1;
+    padding: auto;
+    width: auto;
+    min-width: 50px;
+}
 @media only screen and (max-width: 600px) {
     .heading {
         font-size: 4em;
