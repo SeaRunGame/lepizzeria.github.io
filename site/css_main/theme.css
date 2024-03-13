@@ -239,10 +239,14 @@ html, body{
     font-size: 40px;
 }
 .row2 {
+    color:white;
     display: flex;
     gap:50px;
     padding-left: 80px;
 
+}
+.pvalinta {
+    color:white;
 }
 @keyframes spin {
     0% { transform: rotate(0deg); }
