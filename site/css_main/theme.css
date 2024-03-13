@@ -2,7 +2,7 @@
 
 *{
     font-size: 16px;
-    color: #FFF;
+    color: white;
 }
 html, body{
     background-color: #2D2D2A;
@@ -26,15 +26,6 @@ html, body{
 
 .center {
     align-items: center;
-}
-.pmenu {
-    font-size: 40px;
-}
-.row2 {
-    display: flex;
-    gap:50px;
-    padding-left: 80px;
-
 }
 
 #deliveryDiv {
