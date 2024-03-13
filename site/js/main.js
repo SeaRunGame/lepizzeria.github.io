@@ -195,6 +195,10 @@ function HandleEvent(event)
             document.getElementById("order-finish").style.display = "block";
         }, 3000);
     }
+    else if (event === "home")
+    {
+        window-location.replace("index.html");
+    }
     else 
     {
         document.write("Error 404_1 Unexpected unknown event call");
