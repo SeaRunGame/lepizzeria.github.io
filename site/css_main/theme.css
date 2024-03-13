@@ -239,6 +239,7 @@ html, body{
     font-size: 40px;
 }
 .row2 {
+    border-radius: 100px;
     color:white;
     display: flex;
     gap:50px;
