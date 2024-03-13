@@ -63,7 +63,7 @@ function HandleEvent(event) //eventHandler
         if (username in localStorage)
         {
             document.getElementById("errorText_B").style.display = "block";
-            document.getElementById("errorText_B").textContent = 'Virheelliset tunnistetiedot';
+            document.getElementById("errorText_B").textContent = 'Käyttäjänimi on jo varattu';
             document.getElementById("new-username-field").value = "";
             document.getElementById("new-password-field").value = "";
         }
@@ -91,6 +91,6 @@ function HandleEvent(event) //eventHandler
     }
     else//if event is unkown--------------------------------------------------------------
     {
-        document.write("Error 404 Unexpected event call");
+        document.write("Error 404_1 Unexpected unknown event call");
     }
 }
