@@ -243,7 +243,15 @@ html, body{
     height: 120px;
     animation: spin 1.5s linear infinite;
 }
+.pmenu {
+    font-size: 40px;
+}
+.row2 {
+    display: flex;
+    gap:50px;
+    padding-left: 80px;
 
+}
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
