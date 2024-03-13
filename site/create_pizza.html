@@ -15,16 +15,7 @@
           <img src="img/LePizzeriaJPG_2.jpg" width="148" height="106"/>
         </a>
       </div>
-      <button hidden class="MenuButton">Menu</button>
-      <select class="MenuButton" id="pizza_dropdown" name="pizzas" size="1" onchange='HandleEvent("gotoPizza")'>
-        <option value="null" selected>Valitse pizza</option>
-        <option value="pizza_1">Pizza 1</option>
-        <option value="pizza_2">Pizza 2</option>
-        <option value="pizza_3">Pizza 3</option>
-        <option value="pizza_4">Pizza 4</option>
-        <option value="pizza_5">Pizza 5</option>
-        <option value="pizza_6">Pizza 6</option>
-      </select>
+      <button class="MenuButton" onclick="HandleEvent('home')">Menu</button>
       <button class="CreateButton" onclick='window-location.replace("create_pizza.html")'>Luo oma pizzasi</button>
       <div id="logged_in_page" class="row_right">
         <p id="username-text">null</p>
