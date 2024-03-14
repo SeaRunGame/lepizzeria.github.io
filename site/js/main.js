@@ -42,6 +42,7 @@ function HandleEvent(event)
         document.getElementById("log_in_link").style.display = 'block';
 
         localStorage.setItem("logged_in", "");
+        window-location.reload;
     }
     else if (event === "gotoPizza")
     {
