@@ -226,10 +226,26 @@ function HandleEvent(event)
     {
         window-location.replace("index.html");
     }
+    else if (event === "sendfeedback")
+    {
+        alert("Palaute lähetetty!");
+    }
+    else if (event === "hidetext") 
+    {
+        document.getElementById("virheteksti").style.display = "none";
+        
+    }
     else 
     {
         document.write("Error 404_1 Unexpected unknown event call");
     }
+
+    function isValidEmail(email)
+    {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+    
 }
 
 
