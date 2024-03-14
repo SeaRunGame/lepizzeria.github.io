@@ -83,6 +83,7 @@ function HandleEvent(event)
         const pizza_id = dropDown.value;
         var checkbox = document.getElementById("gluten-free");
         var isGlutenFree = checkbox.checked;
+        localStorage.setItem("special", document.getElementById("additional").value);
 
         if (isGlutenFree)
         {
@@ -153,6 +154,7 @@ function HandleEvent(event)
             var total = Number(amount);
             var delivery_time = Number(amount) * 15;
             var in_hours = false;
+            var special_notes;
             
             if (deliveryType === "Kuljetus")
             {
@@ -168,10 +170,32 @@ function HandleEvent(event)
 
             total += (localStorage.getItem("gluten-free") === "true") ? 2 : 0
 
+            if (localStorage.getItem("gluten-free") === "true")
+            {
+                if (localStorage.getItem("special") !== "")
+                {
+                    special_notes = "Gluteeniton pohja, " + localStorage.getItem("special");
+                }
+                else
+                {
+                    special_notes = "Gluteeniton pohja";
+                }
+            }
+            else
+            {
+                if (localStorage.getItem("special") !== "")
+                {
+                    special_notes = localStorage.getItem("special");
+                }
+                else
+                {
+                    special_notes = "Ei ole";
+                }
+            }
 
             document.getElementById("item").textContent = "Tuote: " + pizza;
             document.getElementById("amount_final").textContent = "Määrä: " + amount;
-            document.getElementById("special").textContent = "Erityishuomiot: " + ((localStorage.getItem("gluten-free") === "true") ? "Gluteeniton pohja" : "Ei ole");
+            document.getElementById("special").textContent = "Erityishuomiot: " + special_notes;
             document.getElementById("deliveryType").textContent = "Toimitustapa: " + deliveryType;
             document.getElementById("deliveryLocation").textContent = "Toimitusosoite: " + deliverLocation;
             document.getElementById("delivery-time").textContent = "Arvioitu toimitusaika: " + delivery_time + ((in_hours) ? " tuntia" : " minuuttia");
