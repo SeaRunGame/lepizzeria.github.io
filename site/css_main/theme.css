@@ -5,7 +5,7 @@
     color: black;
 }
 html, body{
-    background-color: #2D2D2A;
+    background-color: #191102;
     margin: 0;
     height: 100vh;
     text-align: center;
@@ -16,7 +16,7 @@ html, body{
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    background-color: #2D2D2A;
+    background-color: #020122;
     background-size: 100px 106px;
     position: relative;
     width: auto;
@@ -55,12 +55,12 @@ html, body{
 .image-text-section {
     display: flex;
     flex-direction: row;
-    background-color: #f05e16;
+    background-color: #191102;
 }
 .image-text-section2 {
     display: flex;
     flex-direction: row;
-    background-color: #ffb347;
+    background-color: #510D0A;
 }
 
 .image-container,
@@ -75,6 +75,7 @@ html, body{
     
 }
 .feedback-section {
+    background-color: #191102;
     display: flex;
     flex-direction: row;
     
@@ -166,7 +167,7 @@ html, body{
 #log-out-button {
     background-image: url(../img/Log_out_button.png);
     background-size: cover;
-    background-color: rgb(73, 73, 73);;
+    background-color: #020122;
     border: none;
     width: 125px;
     height: 40px;
