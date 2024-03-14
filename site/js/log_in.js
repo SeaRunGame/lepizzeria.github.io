@@ -16,7 +16,7 @@ function HandleEvent(event) //eventHandler
         var password = document.getElementById("password-field").value;
 
         //if username exists
-        if (username in localStorage && localStorage.getItem(username) === password)
+        if (username in localStorage && localStorage.getItem(username) === password && username !== "" && password !== "")
         {
             localStorage.setItem("logged_in", username);         
             window-location.replace("index.html");

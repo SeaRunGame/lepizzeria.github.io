@@ -129,6 +129,7 @@ function HandleEvent(event)
         var amount = localStorage.getItem("amount");
         var deliveryType;
         var deliverLocation;
+        var total = 0;
 
         if (document.getElementById("deliveryDiv").style.display === "block")
         {
@@ -154,10 +155,33 @@ function HandleEvent(event)
             document.getElementById("pizza_form_2").style.display = "none";
             document.getElementById("pizza_form_3").style.display = "block";
 
-            var total = Number(amount);
+            switch (pizza) 
+            {
+                case "Napoletana":
+                    total += 12 * amount;
+                    break;
+                case "Margherita":
+                    total += 10 * amount;
+                    break;
+                case "Al taglio":
+                    total += 15 * amount;
+                    break;
+                case "Caprese":
+                    total += 18 * amount;
+                    break;
+                case "Alla diavola":
+                    total += 15 * amount;
+                    break;
+                default:
+                    alert("Virhe");
+                    break;
+            }
+            alert(total);
+            
             var delivery_time = Number(amount) * 15;
             var in_hours = false;
             var special_notes;
+            var special = false;
             
             if (deliveryType === "Kuljetus")
             {
@@ -178,6 +202,7 @@ function HandleEvent(event)
                 if (localStorage.getItem("special") !== "")
                 {
                     special_notes = "Gluteeniton pohja, " + localStorage.getItem("special");
+                    special = true;
                 }
                 else
                 {
@@ -189,6 +214,7 @@ function HandleEvent(event)
                 if (localStorage.getItem("special") !== "")
                 {
                     special_notes = localStorage.getItem("special");
+                    special = true;
                 }
                 else
                 {
@@ -202,7 +228,7 @@ function HandleEvent(event)
             document.getElementById("deliveryType").textContent = "Toimitustapa: " + deliveryType;
             document.getElementById("deliveryLocation").textContent = "Toimitusosoite: " + deliverLocation;
             document.getElementById("delivery-time").textContent = "Arvioitu toimitusaika: " + delivery_time + ((in_hours) ? " tuntia" : " minuuttia");
-            document.getElementById("total").textContent = "Hinta yhteensä: " + total + "€";
+            document.getElementById("total").textContent = "Hinta yhteensä: " + ((special) ? total += 5 : total) + "€";
         }
     }
     else if (event === "ShowDelivery")
