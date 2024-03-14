@@ -55,7 +55,12 @@ html, body{
 .image-text-section {
     display: flex;
     flex-direction: row;
-    background-color: orange;
+    background-color: #f05e16;
+}
+.image-text-section2 {
+    display: flex;
+    flex-direction: row;
+    background-color: #ffb347;
 }
 
 .image-container,
@@ -65,6 +70,29 @@ html, body{
 
 }
 .text-container {
+  text-align: left;
+  padding-left: 220px;
+    
+}
+.feedback-section {
+    display: flex;
+    flex-direction: row;
+    
+}
+.feedback {
+    position: absolute;
+    align-items: center;
+    text-align: center;
+    right: 485px;   
+}
+
+.text-container1,
+.text-container2 {
+    flex: 1;
+    padding: 20px;
+
+}
+.text-container2 {
   text-align: left;
   padding-left: 220px;
     
