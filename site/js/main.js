@@ -155,7 +155,6 @@ function HandleEvent(event)
                         break;
                 }
 
-                alert(total);
                 var special_notes;
                 var special = false;
 
@@ -207,8 +206,24 @@ function HandleEvent(event)
     }
     else if (event === "Order")
     {
+        //Create cart Datastring
+        var order = "";
+        if ("orders" in localStorage)
+        {
+            order = localStorage.getItem("orders");
+            order += "/Tilaus:0/";
+        }
+        else
+        {
+            order = "Tilaus:0/"
+        }
+
+        order += document.getElementById("item").textContent;
+        order += "/" + document.getElementById("amount_final").textContent;
+        order += "/" + document.getElementById("special").textContent;
+        order += "/" + document.getElementById("total").textContent;
         //Add to cart
-        localStorage.setItem("orders", );
+        localStorage.setItem("orders", order);
 
         document.getElementById("pizza_form_2").style.display = "none";
         document.getElementById("loader").style.display = "block";

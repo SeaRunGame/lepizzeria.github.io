@@ -4,6 +4,7 @@ function LoadCart()
 {
     var cart_text = document.getElementById("ostoskori_text");
     var cart_list = document.getElementById("cart_list");
+    var total_text = document.getElementById("ostoskori_text");
     var order_num = 0;
 
     if ("orders" in localStorage)
@@ -11,9 +12,6 @@ function LoadCart()
         let orders_raw = localStorage.getItem("orders").split("/");
         let orders = {};
         let currentKey = "";
-
-        //Debug
-        alert(JSON.stringify(orders_raw));
 
         for (let i = 0; i < orders_raw.length; i++) 
         {
@@ -32,8 +30,6 @@ function LoadCart()
                 orders[currentKey].push(key + " : " + value);
             }
         }
-        //Debug
-        alert(JSON.stringify(orders));
 
         for (let key in orders) 
         {
@@ -42,7 +38,7 @@ function LoadCart()
                 if (key.startsWith("Tilaus")) 
                 {
                     var orderTitle = document.createElement("li");
-                    orderTitle.textContent = key;
+                    orderTitle.textContent = "-----------------------" + key + "-----------------------";
                     cart_list.appendChild(orderTitle);
                 }
                 let items = orders[key];
@@ -54,9 +50,12 @@ function LoadCart()
                 }
             }
         }
+
+
     }
     else
     {
         cart_text.textContent = "Et ole tilannut mitään";
+        document.getElementById("order_final").style.display = "none";
     }
 }
