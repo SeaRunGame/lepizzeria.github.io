@@ -23,6 +23,11 @@ html, body{
     height: 106px;
     padding-left: 148px; 
 }
+.sticky {
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
 
 .center {
     align-items: center;
@@ -121,6 +126,7 @@ html, body{
 }
 
 .row_right {
+    position: inherit;
     position: absolute;
     bottom: -14px;
     height: 110px;

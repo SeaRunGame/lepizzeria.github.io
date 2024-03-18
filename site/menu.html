@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>LePizzeria</title>
+    <link rel="stylesheet" type="text/css" href="css_main/theme.css"> 
+    <link rel="stylesheet" type="text/css" href="./icons/css/all.min.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="sticky">
+      <div class="leftCorner">
+        <a href="index.html">
+          <img src="img/LePizzeriaJPG_2.jpg" width="148" height="106"/>
+        </a>
+      </div>
+      <button class="MenuButton" onclick="HandleEvent('menu')">Menu</button>
+
+      <button class="CreateButton" onclick='window-location.replace("create_pizza.html")'>Luo oma pizzasi</button>
+      <div id="logged_in_page" class="row_right">
+        <p id="username-text">null</p>
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <button id="log-out-button" onClick='HandleEvent("log_out")'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+        &nbsp;
+        <br>
+        <p></p>
+      </div>
+      <div id="log_in_link" class="row_right">
+        <p style="background-color: #020122;"></p>     
+        <a href="log_in.html">
+          <img src="img/user-account-icon.jpg" width="182" height="50">
+        </a>
+        &nbsp;
+        <p style="background-color: #020122;"></p>
+      </div>
+    </div>
+    <header class="header">
+      <h1 class="heading">
+        LePizzeria
+        <i class="heading-subtext"> A slice of life</i>
+      </h1>
+    </header> 
+    <section>
+        <header class="big" style=" background-color: #874631;">Pizza menu</header>
+        <section class="row2" style=" background-color: #874631;">
+          <div class="pimg">
+            <a href="order_pizza.html" >
+              <img style="border-radius: 30px;" src="img/napoletana.jpg" width="300" height="168">
+              <p class="pvalinta">Pizza Napoletana</p>
+            </a>
+            <div style="background-color: #ffb347; border-radius: 20px;">
+              <ul>
+                <li>San Marzano -tomatit</li>
+                <li>Mozzarella di Bufala</li>
+                <li>Tuore basilika</li>
+                <br>
+                <br>
+              </ul> 
+            </div>
+          </div>
+          
+          <div class="pimg">
+            <a href="order_pizza.html">
+              <img style="border-radius: 30px;" src="img/margherita.jpg" width="300" height="168">
+              <p class="pvalinta">Pizza Margherita</p>
+            </a>
+            <div style="background-color: #ffb347; border-radius: 20px;">
+              <ul>
+                <li>Tomaattikastike</li>
+                <li>Mozzarellajuusto</li>
+                <li>Tuore basilika</li>
+                <br>
+                <br>
+              </ul> 
+            </div>
+          </div>
+          <div class="pimg">
+            <a href="order_pizza.html">
+              <img style="border-radius: 30px;" src="img/taglio.jpg" width="300" height="168">
+              <p class="pvalinta">Pizza al taglio</p>
+            </a>
+            <div style="background-color: #ffb347; border-radius: 20px;">
+              <ul>
+                <li>Tomaattikastike</li>
+                <li>Mozzarellajuusto</li>
+                <li>Oliiviöljy</li>
+                <li>Basilika</li>
+                <br>
+              </ul> 
+            </div>
+          </div>
+          <div class="pimg">
+            <a href="order_pizza.html">
+              <img style="border-radius: 30px;" src="img/caprese.jpg" width="300" height="168">
+              <p class="pvalinta">Caprese Pizza</p>
+            </a>
+            <div style="background-color: #ffb347; border-radius: 20px;">
+              <ul>
+                <li>Tomaattisiivut</li>
+                <li>Tuore mozzarellajuusto</li>
+                <li>Tuoreet basilikanlehdet</li>
+                <li>Oliiviöljy</li>
+                <li>Balsamiviinietikka </li>
+                
+              </ul> 
+            </div>
+          </div>
+          <div class="pimg">
+            <a href="order_pizza.html">
+              <img style="border-radius: 30px;" src="img/diavola.jpg" width="300" height="168"> 
+              <p class="pvalinta">Pizza alla diavola</p>
+            </a>
+            <div style="background-color: #ffb347; border-radius: 20px;">
+              <ul>
+                <li>Tomaattikastike</li>
+                <li>Mozzarellajuusto
+                </li>
+                <li>Mausteinen salami</li>
+                <li>Chilipippuriöljy</li>
+                <br>
+              </ul> 
+            </div>
+          </div>
+        </section>
+    </section>
+  </body>
+</html>
+    
