@@ -18,7 +18,8 @@ function HandleEvent(event) //eventHandler
         //if username exists
         if (username in localStorage && localStorage.getItem(username) === password && username !== "" && password !== "")
         {
-            localStorage.setItem("logged_in", username);         
+            localStorage.setItem("logged_in", username);
+            localStorage.setItem("log_status", "logged_in")         
             window-location.replace("index.html");
         }
         else
@@ -43,7 +44,7 @@ function HandleEvent(event) //eventHandler
     {
         if ("logged_in" in localStorage)
         {
-            if (localStorage.getItem("logged_in") !== "")
+            if (localStorage.getItem("logged_in") !== "" && localStorage.getItem("log_status") !== "logged_in")
             {
                 window-location.replace("index.html");
             }
@@ -72,6 +73,7 @@ function HandleEvent(event) //eventHandler
             localStorage.setItem(username, password);
             //set logged in;
             localStorage.setItem("logged_in", username);
+            localStorage.setItem("log_status", "logged_in");
             window-location.replace("index.html");
         }
     }

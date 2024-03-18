@@ -12,18 +12,34 @@ function HandleEvent(event)
             localStorage.setItem("current_page", current_page);
         }
 
-        if ("logged_in" in localStorage && localStorage.getItem("logged_in") !== "") 
+        if ("logged_in" in localStorage && "log_status" in localStorage) 
         {
-            // User is logged in
-            document.getElementById("logged_in_page").style.display = 'block';
-            document.getElementById("log_in_link").style.display = 'none';
-            HandleEvent("logged_in");
+            if (localStorage.getItem("logged_in") === "" && localStorage.getItem("log_status") === "not_logged_in")
+            {
+                // User is not logged in
+                document.getElementById("logged_in_page").style.display = 'none';
+                document.getElementById("log_in_link").style.display = 'block';
+                if (current_page === "order")
+                {
+                    document.getElementById("pizza_form_1").style.display = "none";
+                    document.getElementById("not_logged_in").style.display = 'block';
+                }
+            }
+            else
+            {
+                // User is logged in
+                document.getElementById("logged_in_page").style.display = 'block';
+                document.getElementById("log_in_link").style.display = 'none';
+                HandleEvent("logged_in");
+            }
         } 
         else 
         {
             // User is not logged in
             document.getElementById("logged_in_page").style.display = 'none';
             document.getElementById("log_in_link").style.display = 'block';
+            document.getElementById("pizza_form_1").style.display = "none";
+            document.getElementById("not_logged_in").style.display = 'block';
         }
     } 
     else if (event === "logged_in") 
@@ -42,6 +58,7 @@ function HandleEvent(event)
         document.getElementById("log_in_link").style.display = 'block';
 
         localStorage.setItem("logged_in", "");
+        localStorage.setItem("log_status", "not_logged_in");
         var path = window.location.pathname;
         var current_page = path.split("/").pop();
         window-location.replace(current_page);
@@ -264,14 +281,7 @@ function HandleEvent(event)
     else 
     {
         document.write("Error 404_1 Unexpected unknown event call");
-    }
-
-    function isValidEmail(email)
-    {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-    
+    }   
 }
 
 
