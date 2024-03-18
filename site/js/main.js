@@ -104,6 +104,9 @@ function HandleEvent(event)
         var checkbox = document.getElementById("gluten-free");
         var isGlutenFree = checkbox.checked;
         localStorage.setItem("special", document.getElementById("additional").value);
+        localStorage.setItem("pizza", dropDown.querySelector('option[value="' + pizza_id + '"]').textContent);
+        var amount = document.getElementById("amount_field").value;
+        localStorage.setItem("amount", amount);
 
         if (isGlutenFree)
         {
@@ -114,9 +117,7 @@ function HandleEvent(event)
             localStorage.setItem("gluten-free", "false");
         }
 
-        var amount = document.getElementById("amount_field").value;
-
-        if (pizza_id === "null")
+        if (pizza_id === "null" || pizza_id === null)
         {
             alert("Ole hyvä ja valitse pizza");
         }
@@ -128,124 +129,72 @@ function HandleEvent(event)
             }
             else
             {
-                localStorage.setItem("pizza", dropDown.querySelector('option[value="' + pizza_id + '"]').textContent);
-                localStorage.setItem("amount", amount);
+                var pizza = localStorage.getItem("pizza");
+                var amount = localStorage.getItem("amount");
+                var total = 0;
+
+                switch (pizza) 
+                {
+                    case "Napoletana":
+                        total += 12 * amount;
+                        break;
+                    case "Margherita":
+                        total += 10 * amount;
+                        break;
+                    case "Al taglio":
+                        total += 15 * amount;
+                        break;
+                    case "Caprese":
+                        total += 18 * amount;
+                        break;
+                    case "Alla diavola":
+                        total += 15 * amount;
+                        break;
+                    default:
+                        alert("Virhe");
+                        break;
+                }
+
+                alert(total);
+                var special_notes;
+                var special = false;
+
+                total += (localStorage.getItem("gluten-free") === "true") ? 2 : 0;
+
+                if (localStorage.getItem("gluten-free") === "true")
+                {
+                    if (localStorage.getItem("special") !== "")
+                    {
+                        special_notes = "Gluteeniton pohja, " + localStorage.getItem("special");
+                        special = true;
+                    }
+                    else
+                    {
+                        special_notes = "Gluteeniton pohja";
+                    }
+                }
+                else
+                {
+                    if (localStorage.getItem("special") !== "")
+                    {
+                        special_notes = localStorage.getItem("special");
+                        special = true;
+                    }
+                    else
+                    {
+                        special_notes = "Ei ole";
+                    }
+                }
+
+                document.getElementById("item").textContent = "Tuote: " + pizza;
+                document.getElementById("amount_final").textContent = "Määrä: " + amount;
+                document.getElementById("special").textContent = "Erityishuomiot: " + special_notes;
+                document.getElementById("total").textContent = "Hinta yhteensä: " + ((special) ? total += 5 : total) + "€";
+                
                 document.getElementById("pizza_form_1").style.display = "none";
                 document.getElementById("pizza_form_2").style.display = "block";
-                document.getElementById("pizza").textContent = "Pizza: " + dropDown.querySelector('option[value="' + pizza_id + '"]').textContent;
-                document.getElementById("amount").textContent = "Määrä: " + amount;
 
             }
-        }
-    }
-    else if (event === "order_pizza_next_2")
-    {
-        var failed = false;
-        document.getElementById("deliveryLocation").style.display = "none";
-        var pizza = localStorage.getItem("pizza");
-        var amount = localStorage.getItem("amount");
-        var deliveryType;
-        var deliverLocation;
-        var total = 0;
-
-        if (document.getElementById("deliveryDiv").style.display === "block")
-        {
-            deliveryType = "Kuljetus";
-            if (document.getElementById("deliveryDiv").value !== "")
-            {
-                deliverLocation = document.getElementById("deliveryDiv").value;
-                document.getElementById("deliveryLocation").style.display = "block";
-            }
-            else
-            {
-                alert("Anna osoite");
-                failed = true;
-            }
-        }
-        else
-        {
-            deliveryType = "Nouto";
-            deliverLocation = "null";
-        }
-        if (!failed)
-        {
-            document.getElementById("pizza_form_2").style.display = "none";
-            document.getElementById("pizza_form_3").style.display = "block";
-
-            switch (pizza) 
-            {
-                case "Napoletana":
-                    total += 12 * amount;
-                    break;
-                case "Margherita":
-                    total += 10 * amount;
-                    break;
-                case "Al taglio":
-                    total += 15 * amount;
-                    break;
-                case "Caprese":
-                    total += 18 * amount;
-                    break;
-                case "Alla diavola":
-                    total += 15 * amount;
-                    break;
-                default:
-                    alert("Virhe");
-                    break;
-            }
-            alert(total);
-            
-            var delivery_time = Number(amount) * 15;
-            var in_hours = false;
-            var special_notes;
-            var special = false;
-            
-            if (deliveryType === "Kuljetus")
-            {
-                total += 5;
-                delivery_time += 120;
-            }
-
-            if (delivery_time >= 60)
-            {
-                delivery_time = delivery_time / 60;
-                in_hours = true;
-            }
-
-            total += (localStorage.getItem("gluten-free") === "true") ? 2 : 0
-
-            if (localStorage.getItem("gluten-free") === "true")
-            {
-                if (localStorage.getItem("special") !== "")
-                {
-                    special_notes = "Gluteeniton pohja, " + localStorage.getItem("special");
-                    special = true;
-                }
-                else
-                {
-                    special_notes = "Gluteeniton pohja";
-                }
-            }
-            else
-            {
-                if (localStorage.getItem("special") !== "")
-                {
-                    special_notes = localStorage.getItem("special");
-                    special = true;
-                }
-                else
-                {
-                    special_notes = "Ei ole";
-                }
-            }
-
-            document.getElementById("item").textContent = "Tuote: " + pizza;
-            document.getElementById("amount_final").textContent = "Määrä: " + amount;
-            document.getElementById("special").textContent = "Erityishuomiot: " + special_notes;
-            document.getElementById("deliveryType").textContent = "Toimitustapa: " + deliveryType;
-            document.getElementById("deliveryLocation").textContent = "Toimitusosoite: " + deliverLocation;
-            document.getElementById("delivery-time").textContent = "Arvioitu toimitusaika: " + delivery_time + ((in_hours) ? " tuntia" : " minuuttia");
-            document.getElementById("total").textContent = "Hinta yhteensä: " + ((special) ? total += 5 : total) + "€";
         }
     }
     else if (event === "ShowDelivery")
@@ -258,8 +207,12 @@ function HandleEvent(event)
     }
     else if (event === "Order")
     {
-        document.getElementById("pizza_form_3").style.display = "none";
+        //Add to cart
+        localStorage.setItem("orders", );
+
+        document.getElementById("pizza_form_2").style.display = "none";
         document.getElementById("loader").style.display = "block";
+
         setTimeout(function() {
             document.getElementById("loader").style.display = "none";
             document.getElementById("order-finish").style.display = "block";

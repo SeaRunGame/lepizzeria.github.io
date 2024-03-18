@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", HandleEvent("check_if_logged"));
+/*document.addEventListener("DOMContentLoaded", HandleEvent("check_if_logged"));
 
 function HandleEvent(event)
 {
@@ -23,3 +23,4 @@ function HandleEvent(event)
         document.write("Error 404_1 Unexpected unknown event call");
     }
 }
+*/
