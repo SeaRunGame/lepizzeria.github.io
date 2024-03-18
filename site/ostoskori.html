@@ -53,15 +53,15 @@
             <label for="Nouto">Nouto</label>
             <br>
             <input type="radio" id="Kuljetus" value="Kuljetus" name="delivery" onchange="HandleEvent('ShowDelivery')">
-            <label for="Kuljetus">Kuljetus</label>
+            <label for="Kuljetus">Kuljetus (+5€)</label>
             <br>
             <br>
             <input class="center" id="deliveryDiv" type="text" value="" placeholder="Syötä osoitteesi" style="display: none;">
-            <p class="smaller-text" id="deliveryType"></p>
             <p class="smaller-text" id="total_final"></p>
-            <p class="smaller-text" id="deliveryLocation"></p>
             <p class="smaller-text" id="delivery-time"></p>
             <button onclick="HandleEvent('Order')">Tilaa nyt</button>
+            <br>
+            <br>
         </div>
     </section>
 

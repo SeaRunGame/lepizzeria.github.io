@@ -217,10 +217,16 @@ function HandleEvent(event)
     else if (event === "ShowDelivery")
     {
         document.getElementById("deliveryDiv").style.display = "block";
+        localStorage.setItem("delivery_type", "toimitus");
+        localStorage.setItem("total_prize", parseInt(localStorage.getItem("total_prize")) + 5); 
+        document.getElementById("total_final").textContent = "Yhteishinta: " + parseInt(localStorage.getItem("total_prize")) + "€";
     }
     else if (event === "HideDelivery")
     {
         document.getElementById("deliveryDiv").style.display = "none";
+        localStorage.setItem("delivery_type", "nouto");
+        localStorage.setItem("total_prize", parseInt(localStorage.getItem("total_prize")) - 5); 
+        document.getElementById("total_final").textContent = "Yhteishinta: " + parseInt(localStorage.getItem("total_prize")) + "€";
     }
     else if (event === "Order")
     {
