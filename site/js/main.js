@@ -185,6 +185,24 @@ function HandleEvent(event)
                     }
                 }
 
+                if ("total_prize" in localStorage)
+                {
+                    localStorage.setItem("total_prize", parseInt(localStorage.getItem("total_prize")) + parseInt(total));
+                }
+                else
+                {
+                    localStorage.setItem("total_prize", parseInt(total));
+                }
+
+                if ("total_amount" in localStorage)
+                {
+                    localStorage.setItem("total_amount", parseInt(localStorage.getItem("total_amount")) + parseInt(amount));
+                }
+                else
+                {
+                    localStorage.setItem("total_amount", parseInt(amount));
+                }
+
                 document.getElementById("item").textContent = "Tuote: " + pizza;
                 document.getElementById("amount_final").textContent = "Määrä: " + amount;
                 document.getElementById("special").textContent = "Erityishuomiot: " + special_notes;
@@ -222,6 +240,7 @@ function HandleEvent(event)
         order += "/" + document.getElementById("amount_final").textContent;
         order += "/" + document.getElementById("special").textContent;
         order += "/" + document.getElementById("total").textContent;
+
         //Add to cart
         localStorage.setItem("orders", order);
 

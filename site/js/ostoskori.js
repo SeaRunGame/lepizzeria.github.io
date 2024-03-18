@@ -4,7 +4,10 @@ function LoadCart()
 {
     var cart_text = document.getElementById("ostoskori_text");
     var cart_list = document.getElementById("cart_list");
-    var total_text = document.getElementById("ostoskori_text");
+    var total_text = document.getElementById("total_final");
+    var delivery_type = document.getElementById("deliveryType");
+    var delivery_location = document.getElementById("deliveryLocation");
+    var delivery_time = document.getElementById("delivery-time");
     var order_num = 0;
 
     if ("orders" in localStorage)
@@ -51,7 +54,7 @@ function LoadCart()
             }
         }
 
-
+        total_text.textContent = "Yhteishinta: " + localStorage.getItem("total_prize") + "€";
     }
     else
     {
