@@ -178,6 +178,7 @@ function HandleEvent(event)
                     {
                         special_notes = localStorage.getItem("special");
                         special = true;
+                        total += 5;
                     }
                     else
                     {
@@ -206,7 +207,7 @@ function HandleEvent(event)
                 document.getElementById("item").textContent = "Tuote: " + pizza;
                 document.getElementById("amount_final").textContent = "Määrä: " + amount;
                 document.getElementById("special").textContent = "Erityishuomiot: " + special_notes;
-                document.getElementById("total").textContent = "Hinta yhteensä: " + ((special) ? total += 5 : total) + "€";
+                document.getElementById("total").textContent = "Hinta yhteensä: " + total + "€";
                 
                 document.getElementById("pizza_form_1").style.display = "none";
                 document.getElementById("pizza_form_2").style.display = "block";
@@ -220,6 +221,19 @@ function HandleEvent(event)
         localStorage.setItem("delivery_type", "toimitus");
         localStorage.setItem("total_prize", parseInt(localStorage.getItem("total_prize")) + 5); 
         document.getElementById("total_final").textContent = "Yhteishinta: " + parseInt(localStorage.getItem("total_prize")) + "€";
+        var total_delivery_time = parseInt(localStorage.getItem("total_amount")) * 15;
+
+        var in_hours = false;
+        
+        total_delivery_time += 120;
+
+        if (total_delivery_time >= 60)
+        {
+            total_delivery_time = total_delivery_time / 60;
+            in_hours = true;
+        }
+
+        document.getElementById("delivery-time").textContent = "Arvioitu toimitusaika: " + total_delivery_time + ((in_hours) ? " tuntia" : " minuuttia");
     }
     else if (event === "HideDelivery")
     {
@@ -227,6 +241,7 @@ function HandleEvent(event)
         localStorage.setItem("delivery_type", "nouto");
         localStorage.setItem("total_prize", parseInt(localStorage.getItem("total_prize")) - 5); 
         document.getElementById("total_final").textContent = "Yhteishinta: " + parseInt(localStorage.getItem("total_prize")) + "€";
+        document.getElementById("delivery-time").textContent = "";
     }
     else if (event === "Order")
     {

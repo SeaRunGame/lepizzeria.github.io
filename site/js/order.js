@@ -1,26 +1,48 @@
-/*document.addEventListener("DOMContentLoaded", HandleEvent("check_if_logged"));
-
-function HandleEvent(event)
+function Order_Final()
 {
-    if (event === "check_if_logged")
+    if (localStorage.getItem("delivery_type") === "toimitus")
     {
-        if (!"logged_in" in localStorage || localStorage.getItem("logged_in") === "")
+        if (document.getElementById("deliveryDiv").value !== "")
         {
-            document.getElementById("pizza_form_1").style.display = "none";
-            document.getElementById("not_logged_in").style.display = "block";
+            document.getElementById("loader").style.display = "block";
+            document.getElementById("order_final").style.display = "none";
+
+            localStorage.removeItem("special");
+            localStorage.removeItem("pizza");
+            localStorage.removeItem("total_amount");
+            localStorage.removeItem("total_prize");
+            localStorage.removeItem("amount");
+            localStorage.removeItem("orders");
+            localStorage.removeItem("delivery_type");
+            localStorage.removeItem("gluten-free");
+
+            setTimeout(function() {
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("success_text").style.display = "block";
+            }, 3000)
         }
         else
         {
-            if ("current_page" in localStorage && localStorage.getItem("current_page") !== "create_pizza" && localStorage.getItem("current_page") !== "index" && localStorage.getItem("current_page") !== "log_in")
-            {
-                let pizza_dropdown = document.getElementById("pizza_order_dropdown");
-                pizza_dropdown.value = localStorage.getItem("current_page");
-            }
+            alert("Ole hyvä ja anna osoite");
         }
     }
     else
     {
-        document.write("Error 404_1 Unexpected unknown event call");
+        document.getElementById("loader").style.display = "block";
+        document.getElementById("order_final").style.display = "none";
+
+        localStorage.removeItem("special");
+        localStorage.removeItem("pizza");
+        localStorage.removeItem("total_amount");
+        localStorage.removeItem("total_prize");
+        localStorage.removeItem("amount");
+        localStorage.removeItem("orders");
+        localStorage.removeItem("delivery_type");
+        localStorage.removeItem("gluten-free");
+
+        setTimeout(function() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("success_text").style.display = "block";
+        }, 3000)
     }
 }
-*/

@@ -39,13 +39,11 @@
       </div>
     </div>
     
-    <section class="center">
+    <section class="center" style="background-color: orange;">
         <h1 class="big">Ostoskori</h1>
         <br>
         <p class="smaller-text" id="ostoskori_text"></p>
-        <ul id="cart_list"></ul>
-        <br>
-        <br>
+        <ul id="cart_list" style="background-color: orange;"></ul>
         <br>
         <div id="order_final" style="background-color: orange;">
             <p class="normal-text">Toimitustapa</p>
@@ -59,10 +57,15 @@
             <input class="center" id="deliveryDiv" type="text" value="" placeholder="Syötä osoitteesi" style="display: none;">
             <p class="smaller-text" id="total_final"></p>
             <p class="smaller-text" id="delivery-time"></p>
-            <button onclick="HandleEvent('Order')">Tilaa nyt</button>
+            <button onclick="Order_Final()">Tilaa nyt</button>
             <br>
             <br>
         </div>
+        <div id="success_text">
+            <p style="display: none;" class="smaller-text">Tilaus onnistui!</p>
+            <button class="button_link" onclick="window-location.replace('index.html')">Palaa takaisin</button>
+        </div>
+        <div id="loader" class="loader" style="display: none;"></div>
     </section>
 
     <script src="js/order.js"></script>
