@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <div class="sticky">
+    <div class="row">
       <div class="leftCorner">
         <a href="index.html">
           <img src="img/LePizzeriaJPG_2.jpg" width="148" height="106"/>
@@ -44,6 +44,7 @@
         <i class="heading-subtext"> A slice of life</i>
       </h1>
     </header> 
+
     <section>
         <header class="big" style=" background-color: #874631;">Pizza menu</header>
         <section class="row2" style=" background-color: #874631;">
@@ -127,6 +128,17 @@
           </div>
         </section>
     </section>
+    <script src="js/main.js"></script>
+    <script src="./js/smooth-scroll.polyfills.min.js"></script>
+    <script defer>
+      var scroll = new SmoothScroll('a[href*="#"]');
+      var rsvpButton = document.getElementById('rsvpButton')
+      rsvpButton.addEventListener('click',hideButton,false);
+
+      function hideButton() {
+        rsvpButton.style.display = 'none';
+      }   
+    </script>
   </body>
 </html>
     
