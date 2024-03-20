@@ -5,6 +5,7 @@ function LoadCart()
     var cart_text = document.getElementById("ostoskori_text");
     var cart_list = document.getElementById("cart_list");
     var total_text = document.getElementById("total_final");
+    var total_amount = document.getElementById("total_amount");
     var delivery_type = document.getElementById("deliveryType");
     var delivery_location = document.getElementById("deliveryLocation");
     var delivery_time = document.getElementById("delivery-time");
@@ -38,6 +39,7 @@ function LoadCart()
         }
 
         total_text.textContent = "Yhteishinta: " + localStorage.getItem("total_prize") + "€";
+        total_amount.textContent = "Pizzoja yhteensä " + localStorage.getItem("total_amount") + " kappaletta";
     }
     else
     {
