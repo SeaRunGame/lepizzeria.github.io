@@ -48,13 +48,3 @@ function LoadCart()
         document.getElementById("order_final").style.display = "none";
     }
 }
-
-function Order_Final()
-{
-    document.getElementById("order_final").style.display = "none";
-    document.getElementById("loader").style.display = "block";
-    setTimeout(function() {
-        document.getElementById("loader").style.display = "none";
-        document.getElementById("order_final").style.display = "block";
-    }, 3000);
-}

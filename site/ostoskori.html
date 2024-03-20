@@ -43,10 +43,10 @@
       <div class="box">
         <h1 class="big">&nbsp;Ostoskori</h1>
         <p class="smaller-text" id="ostoskori_text" style="display: none;"></p>
-        <section style="position: relative; left: 21%;">
-          <ul id="cart_list" style="background-color: whitesmoke; width: 55%;"></ul>
-        </section>
         <div id="order_final" style="background-color: orange;">
+            <section style="position: relative; left: 21%;">
+              <ul id="cart_list" style="background-color: whitesmoke; width: 55%;"></ul>
+            </section>
             <p class="normal-text">Toimitustapa</p>
             <input type="radio" id="Nouto" value="Nouto" name="delivery" onchange="HandleEvent('HideDelivery')" checked>
             <label for="Nouto">Nouto</label>
@@ -63,11 +63,15 @@
             <br>
             <br>
         </div>
-        <div id="success_text">
-            <p style="display: none;" class="smaller-text">Tilaus onnistui!</p>
-            <button class="button_link" onclick="window-location.replace('index.html')" style="display: none;">Palaa takaisin</button>
-        </div>
-        <div id="loader" class="loader" style="display: none;"></div>
+      </div>
+    </section>
+
+    <div id="loader" class="loader" style="display: none;"></div>
+
+    <section class="center" id="success_text" style="background-color: orange; display: none;">
+      <div>
+        <p class="smaller-text">Tilaus onnistui!</p>
+        <button class="button_link" onclick="window-location.replace('index.html')">Palaa takaisin</button>
       </div>
     </section>
 
