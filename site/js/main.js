@@ -12,34 +12,18 @@ function HandleEvent(event)
             localStorage.setItem("current_page", current_page);
         }
 
-        if ("logged_in" in localStorage && "log_status" in localStorage) 
+        if ("logged_in" in localStorage && localStorage.getItem("logged_in") !== "") 
         {
-            if (localStorage.getItem("logged_in") === "" && localStorage.getItem("log_status") === "not_logged_in")
-            {
-                // User is not logged in
-                document.getElementById("logged_in_page").style.display = 'none';
-                document.getElementById("log_in_link").style.display = 'block';
-                if (current_page === "order")
-                {
-                    document.getElementById("pizza_form_1").style.display = "none";
-                    document.getElementById("not_logged_in").style.display = 'block';
-                }
-            }
-            else
-            {
-                // User is logged in
-                document.getElementById("logged_in_page").style.display = 'block';
-                document.getElementById("log_in_link").style.display = 'none';
-                HandleEvent("logged_in");
-            }
+            // User is logged in
+            document.getElementById("logged_in_page").style.display = 'block';
+            document.getElementById("log_in_link").style.display = 'none';
+            HandleEvent("logged_in");
         } 
         else 
         {
             // User is not logged in
             document.getElementById("logged_in_page").style.display = 'none';
             document.getElementById("log_in_link").style.display = 'block';
-            document.getElementById("pizza_form_1").style.display = "none";
-            document.getElementById("not_logged_in").style.display = 'block';
         }
     } 
     else if (event === "logged_in") 
@@ -58,7 +42,6 @@ function HandleEvent(event)
         document.getElementById("log_in_link").style.display = 'block';
 
         localStorage.setItem("logged_in", "");
-        localStorage.setItem("log_status", "not_logged_in");
         var path = window.location.pathname;
         var current_page = path.split("/").pop();
         window-location.replace(current_page);
@@ -104,9 +87,6 @@ function HandleEvent(event)
         var checkbox = document.getElementById("gluten-free");
         var isGlutenFree = checkbox.checked;
         localStorage.setItem("special", document.getElementById("additional").value);
-        localStorage.setItem("pizza", dropDown.querySelector('option[value="' + pizza_id + '"]').textContent);
-        var amount = document.getElementById("amount_field").value;
-        localStorage.setItem("amount", amount);
 
         if (isGlutenFree)
         {
@@ -117,7 +97,9 @@ function HandleEvent(event)
             localStorage.setItem("gluten-free", "false");
         }
 
-        if (pizza_id === "null" || pizza_id === null)
+        var amount = document.getElementById("amount_field").value;
+
+        if (pizza_id === "null")
         {
             alert("Ole hyvä ja valitse pizza");
         }
@@ -129,167 +111,129 @@ function HandleEvent(event)
             }
             else
             {
-                var pizza = localStorage.getItem("pizza");
-                var amount = localStorage.getItem("amount");
-                var total = 0;
-
-                switch (pizza) 
-                {
-                    case "Napoletana":
-                        total += 12 * amount;
-                        break;
-                    case "Margherita":
-                        total += 10 * amount;
-                        break;
-                    case "Al taglio":
-                        total += 15 * amount;
-                        break;
-                    case "Caprese":
-                        total += 18 * amount;
-                        break;
-                    case "Alla diavola":
-                        total += 15 * amount;
-                        break;
-                    default:
-                        alert("Virhe");
-                        break;
-                }
-
-                var special_notes;
-                var special = false;
-
-                total += (localStorage.getItem("gluten-free") === "true") ? 2 : 0;
-
-                if (localStorage.getItem("gluten-free") === "true")
-                {
-                    if (localStorage.getItem("special") !== "")
-                    {
-                        special_notes = "Gluteeniton pohja, " + localStorage.getItem("special");
-                        special = true;
-                    }
-                    else
-                    {
-                        special_notes = "Gluteeniton pohja";
-                    }
-                }
-                else
-                {
-                    if (localStorage.getItem("special") !== "")
-                    {
-                        special_notes = localStorage.getItem("special");
-                        special = true;
-                        total += 5;
-                    }
-                    else
-                    {
-                        special_notes = "Ei ole";
-                    }
-                }
-
-                if ("total_prize" in localStorage)
-                {
-                    localStorage.setItem("total_prize", parseInt(localStorage.getItem("total_prize")) + parseInt(total));
-                }
-                else
-                {
-                    localStorage.setItem("total_prize", parseInt(total));
-                }
-
-                if ("total_amount" in localStorage)
-                {
-                    localStorage.setItem("total_amount", parseInt(localStorage.getItem("total_amount")) + parseInt(amount));
-                }
-                else
-                {
-                    localStorage.setItem("total_amount", parseInt(amount));
-                }
-
-                document.getElementById("item").textContent = "Tuote: " + pizza;
-                document.getElementById("amount_final").textContent = "Määrä: " + amount;
-                document.getElementById("special").textContent = "Erityishuomiot: " + special_notes;
-                document.getElementById("total").textContent = "Hinta yhteensä: " + total + "€";
-                
+                localStorage.setItem("pizza", dropDown.querySelector('option[value="' + pizza_id + '"]').textContent);
+                localStorage.setItem("amount", amount);
                 document.getElementById("pizza_form_1").style.display = "none";
                 document.getElementById("pizza_form_2").style.display = "block";
+                document.getElementById("pizza").textContent = "Pizza: " + dropDown.querySelector('option[value="' + pizza_id + '"]').textContent;
+                document.getElementById("amount").textContent = "Määrä: " + amount;
 
             }
+        }
+    }
+    else if (event === "order_pizza_next_2")
+    {
+        var failed = false;
+        document.getElementById("deliveryLocation").style.display = "none";
+        var pizza = localStorage.getItem("pizza");
+        var amount = localStorage.getItem("amount");
+        var deliveryType;
+        var deliverLocation;
+
+        if (document.getElementById("deliveryDiv").style.display === "block")
+        {
+            deliveryType = "Kuljetus";
+            if (document.getElementById("deliveryDiv").value !== "")
+            {
+                deliverLocation = document.getElementById("deliveryDiv").value;
+                document.getElementById("deliveryLocation").style.display = "block";
+            }
+            else
+            {
+                alert("Anna osoite");
+                failed = true;
+            }
+        }
+        else
+        {
+            deliveryType = "Nouto";
+            deliverLocation = "null";
+        }
+        if (!failed)
+        {
+            document.getElementById("pizza_form_2").style.display = "none";
+            document.getElementById("pizza_form_3").style.display = "block";
+
+            var total = Number(amount);
+            var delivery_time = Number(amount) * 15;
+            var in_hours = false;
+            var special_notes;
+            
+            if (deliveryType === "Kuljetus")
+            {
+                total += 5;
+                delivery_time += 120;
+            }
+
+            if (delivery_time >= 60)
+            {
+                delivery_time = delivery_time / 60;
+                in_hours = true;
+            }
+
+            total += (localStorage.getItem("gluten-free") === "true") ? 2 : 0
+
+            if (localStorage.getItem("gluten-free") === "true")
+            {
+                if (localStorage.getItem("special") !== "")
+                {
+                    special_notes = "Gluteeniton pohja, " + localStorage.getItem("special");
+                }
+                else
+                {
+                    special_notes = "Gluteeniton pohja";
+                }
+            }
+            else
+            {
+                if (localStorage.getItem("special") !== "")
+                {
+                    special_notes = localStorage.getItem("special");
+                }
+                else
+                {
+                    special_notes = "Ei ole";
+                }
+            }
+
+            document.getElementById("item").textContent = "Tuote: " + pizza;
+            document.getElementById("amount_final").textContent = "Määrä: " + amount;
+            document.getElementById("special").textContent = "Erityishuomiot: " + special_notes;
+            document.getElementById("deliveryType").textContent = "Toimitustapa: " + deliveryType;
+            document.getElementById("deliveryLocation").textContent = "Toimitusosoite: " + deliverLocation;
+            document.getElementById("delivery-time").textContent = "Arvioitu toimitusaika: " + delivery_time + ((in_hours) ? " tuntia" : " minuuttia");
+            document.getElementById("total").textContent = "Hinta yhteensä: " + total + "€";
         }
     }
     else if (event === "ShowDelivery")
     {
         document.getElementById("deliveryDiv").style.display = "block";
-        localStorage.setItem("delivery_type", "toimitus");
-        localStorage.setItem("total_prize", parseInt(localStorage.getItem("total_prize")) + 5); 
-        document.getElementById("total_final").textContent = "Yhteishinta: " + parseInt(localStorage.getItem("total_prize")) + "€";
-        var total_delivery_time = parseInt(localStorage.getItem("total_amount")) * 15;
-
-        var in_hours = false;
-        
-        total_delivery_time += 120;
-
-        if (total_delivery_time >= 60)
-        {
-            total_delivery_time = total_delivery_time / 60;
-            in_hours = true;
-        }
-
-        document.getElementById("delivery-time").textContent = "Arvioitu toimitusaika: " + total_delivery_time + ((in_hours) ? " tuntia" : " minuuttia");
     }
     else if (event === "HideDelivery")
     {
         document.getElementById("deliveryDiv").style.display = "none";
-        localStorage.setItem("delivery_type", "nouto");
-        localStorage.setItem("total_prize", parseInt(localStorage.getItem("total_prize")) - 5); 
-        document.getElementById("total_final").textContent = "Yhteishinta: " + parseInt(localStorage.getItem("total_prize")) + "€";
-        document.getElementById("delivery-time").textContent = "";
     }
     else if (event === "Order")
     {
-        //Create cart Datastring
-        var order = "";
-        if ("orders" in localStorage)
-        {
-            order = localStorage.getItem("orders");
-            order += "/Tilaus:0/";
-        }
-        else
-        {
-            order = "Tilaus:0/"
-        }
-
-        order += document.getElementById("item").textContent;
-        order += "/" + document.getElementById("amount_final").textContent;
-        order += "/" + document.getElementById("special").textContent;
-        order += "/" + document.getElementById("total").textContent;
-
-        //Add to cart
-        localStorage.setItem("orders", order);
-
-        document.getElementById("pizza_form_2").style.display = "none";
+        document.getElementById("pizza_form_3").style.display = "none";
         document.getElementById("loader").style.display = "block";
-
         setTimeout(function() {
             document.getElementById("loader").style.display = "none";
             document.getElementById("order-finish").style.display = "block";
         }, 3000);
     }
+    else if (event === "home")
+    {
+        window-location.replace("index.html");
+    }
     else if (event === "menu")
     {
         window-location.replace("menu.html");
     }
-    else if (event === "sendfeedback")
-    {
-        alert("Palaute lähetetty!");
-    }
-    else if (event === "hidetext") 
-    {
-        document.getElementById("virheteksti").style.display = "none";
-        
-    }
     else 
     {
         document.write("Error 404_1 Unexpected unknown event call");
-    }   
+    }
 }
 
 

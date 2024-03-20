@@ -44,19 +44,20 @@
         <form id="pizza_form_1" onsubmit="return false">
             <p class="normal-text">Valitse pizza</p>
             <select id="pizza_order_dropdown" name="pizzas" size="1"'>
-                <option value="null" selected>Valitse pizza</option>
+                <option value="null">Valitse pizza</option>
                 <option value="pizza_1" >Napoletana</option>
                 <option value="pizza_2">Margherita</option>
                 <option value="pizza_3">Al taglio</option>
                 <option value="pizza_4">Caprese</option>
                 <option value="pizza_5">Alla diavola</option>
+                <option value="pizza_6">Pizza 6</option>
             </select>
             <p class="normal-text">Valitse määrä</p>
             <input id="amount_field" type="number" value="1" placeholder="Syötä määrä"/>
             <p class="normal-text">Erityisruokavaliot</p>
             <input id="gluten-free" type="checkbox" name="gluten-free"/>
             <label for="gluten-free">Gluteeniton pohja (+2€)</label>
-            <p class="normal-text">Muu lisä (+5€)</p>
+            <p class="normal-text">Lisätiedot</p>
             <input style="width: 350px;" id="additional" type="text" value="" placeholder="Haluatko esim. lisätäytteitä tai juoman?" />
             <br>
             <br>
@@ -64,24 +65,43 @@
             <input type="submit" onclick='HandleEvent("order_pizza_next")' value="Seuraava">
         </form>
 
-        <div id="pizza_form_2" style="display: none;">
+        <form id="pizza_form_2" onsubmit="return false" style="display: none;">
+            <p class="normal-text">Olet tilaamassa</p>
+            <p id="pizza" class="smaller-text"></p>
+            <p id="amount" class="smaller-text"></p>
+            <p class="normal-text">Toimitustapa</p>
+            <input type="radio" id="Nouto" value="Nouto" name="delivery" onchange="HandleEvent('HideDelivery')" checked>
+            <label for="Nouto">Nouto</label>
+            <br>
+            <input type="radio" id="Kuljetus" value="Kuljetus" name="delivery" onchange="HandleEvent('ShowDelivery')">
+            <label for="Kuljetus">Kuljetus</label>
+            <br>
+            <br>
+            <input class="center" id="deliveryDiv" type="text" value="" placeholder="Syötä osoitteesi" style="display: none;">
+            <br>
+            <br>
+            <input type="submit" onclick= "HandleEvent('order_pizza_next_2')" value="Viimeistele tilaus">
+        </form>
+
+        <div id="pizza_form_3" style="display: none;">
             <p class="normal-text">Yhteenveto</p>
             <p class="smaller-text" id="item"></p>
             <p class="smaller-text" id="amount_final"></p>
             <p class="smaller-text" id="special"></p>
+            <p class="smaller-text" id="deliveryType"></p>
+            <p class="smaller-text" id="deliveryLocation"></p>
             <p class="smaller-text" id="total"></p>
             <br>
-            <button onclick="HandleEvent('Order')">Lisää ostoskoriin</button>
+            <p class="smaller-text" id="delivery-time"></p>
+            <br>
+            <button onclick="HandleEvent('Order')">Tilaa nyt</button>
         </div>
 
         <div id="loader" class="loader" style="display: none;"></div>
 
         <div id="order-finish" style="display: none;">
-          <p class="smaller-text">Tuote lisättiin onnistuneesti ostoskoriin!</p>
+          <p class="smaller-text">Onneksi olkoon, tilaus onnistui!</p>
           <button class="button_link" onclick="window-location.replace('index.html')">Palaa takaisin</button>
-          <br>
-          <br>
-          <button class="button_link" onclick="window-location.replace('ostoskori.html')">Ostoskoriin</button>
         </div>
 
         <div id="not_logged_in" style="display: none;">
