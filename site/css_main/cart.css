@@ -3,6 +3,10 @@
     color: black;
 }
 
+.normal {
+    font-size: 16px;
+}
+
 .box {
     width: auto;
     height: auto;

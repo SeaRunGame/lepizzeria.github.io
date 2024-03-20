@@ -43,54 +43,6 @@
             </div>
 
         </div>
-        <section class="feedback-section">
-            <div class="text-container1">
-              <br>
-              <br>
-              <br>
-              <p style="color:white"> Sähköpostiosoite: lepizzeria@gmail.com</p> 
-              <p style="color:white"> Puh. +358 1234 567 890</p> 
-              <p style="color:white"> © Copyright LePizzeria oy</p> 
-            </div>
-            <div class="text-container2">
-              <h1></h1>
-              <h1 class="normal-text" style="color:white" >Palaute</h1>
-              <form class="feedback" onsubmit="HandleEvent('sendfeedback')">
-                <div class="rating">
-                  <input type="radio" id="1" name="rating" value="1" onchange="handleRatingChange(1)" checked>
-                  <label for="1" title="1 star"></label>
-                  &nbsp;
-                  &nbsp;
-                  <input type="radio" id="2" name="rating" value="2" onchange="handleRatingChange(2)">
-                  <label for="2" title="2 star"></label>
-                  &nbsp;
-                  &nbsp;
-                  <input type="radio" id="3" name="rating" value="3" onchange="handleRatingChange(3)">
-                  <label for="3" title="3 star"></label>
-                  &nbsp;
-                  &nbsp;
-                  <input type="radio" id="4" name="rating" value="4" onchange="handleRatingChange(4)">
-                  <label for="4" title="4 star"></label>
-                  &nbsp;
-                  &nbsp;
-                  <input type="radio" id="5" name="rating" value="5" onchange="handleRatingChange(5)">
-                  <label for="5" title="5 star"></label>
-                </div>
-                <br>
-                <br>
-                <br>
-                <input type="email" required id="sahkoposti" placeholder="Syötä sähköpostisi" onchange="HandleEvent('hidetext')">
-                <br>
-                <br>
-                <input type="text" id="viesti" value="" placeholder="Syötä palaute" onchange="HandleEvent('hidetext')">
-                <br>
-                
-                <br>
-                <br>
-                <input type="submit" value="Lähetä" > 
-              </form>
-            </div>
-          </section>
         <script src="js/log_in.js"></script>
     </body>
 </html>
