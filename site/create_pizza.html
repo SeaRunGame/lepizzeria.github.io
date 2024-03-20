@@ -43,26 +43,121 @@
         <i class="heading-subtext"> A slice of life</i>
       </h1>
     </header> 
-    <section class="section">
-      <h2 class="sub-heading"></h2>
-      <div class="details">
+    <section class="center" style="background-color: brown;">
+      <h1 class="big">Pizzan tilaaminen</h1>
+      <br>
+      <form id="pizza_form_1" onsubmit="return false">
+          <p class="normal-text">Valitse pizza</p>
+          <select id="pizza_order_dropdown" name="pizzas" size="1"'>
+              <option value="null" selected>Valitse pizza</option>
+              <option value="pizza_1" >Napoletana</option>
+              <option value="pizza_2">Margherita</option>
+              <option value="pizza_3">Al taglio</option>
+              <option value="pizza_4">Caprese</option>
+              <option value="pizza_5">Alla diavola</option>
+          </select>
+          <p class="normal-text">Valitse määrä</p>
+          <input id="amount_field" type="number" value="1" placeholder="Syötä määrä"/>
+          <p class="normal-text">Erityisruokavaliot</p>
+          <input id="gluten-free" type="checkbox" name="gluten-free"/>
+          <label for="gluten-free">Gluteeniton pohja (+2€)</label>
+          <p class="normal-text">Lisätiedot</p>
+          <input style="width: 350px;" id="additional" type="text" value="" placeholder="Haluatko esim. lisätäytteitä tai juoman?" />
+          <br>
+          <br>
+          <br>
+          <input type="submit" onclick='HandleEvent("order_pizza_next")' value="Seuraava">
+      </form>
+
+      <div id="pizza_form_3" style="display: none;">
+          <p class="normal-text">Yhteenveto</p>
+          <p class="smaller-text" id="item"></p>
+          <p class="smaller-text" id="amount_final"></p>
+          <p class="smaller-text" id="special"></p>
+          <p class="smaller-text" id="total"></p>
+          <br>
+          <p class="smaller-text" id="delivery-time"></p>
+          <br>
+          <button onclick="HandleEvent('Order')">Lisää ostoskoriin</button>
       </div>
-      <div class="details">
+
+      <div id="loader" class="loader" style="display: none;"></div>
+
+      <div id="order-finish" style="display: none;">
+        <p class="smaller-text">Tilaus lisättiin ostoskoriin onnistuneesti</p>
+        <button class="button_link" onclick="window-location.replace('ostoskori.html')">Ostoskoriin</button>
+        <br>
+        <br>
+        <button class="button_link" onclick="window-location.replace('index.html')">Palaa takaisin</button>
       </div>
-      <div class="details">
-      
-        <p></p></p>
-        <p></p>
+
+      <div id="not_logged_in" style="display: none;">
+        <p class="smaller-text">Jotta voisit tilata pizzojamme, kirjaudu sisään tai rekisteröidy.</p>
       </div>
-      <div class="details">
-        <p></p>
-        <p></p>
-      </div>
-      <div class="details">
-        <p></p>
-        <p></p>
-      </div>
-    </section>
+      <br>
+      <br>
+      <br>
+  </section>
+  <section class="feedback-section">
+    <div class="text-container1">
+      <br>
+      <br>
+      <br>
+      <p style="color:white"> Sähköpostiosoite: lepizzeria@gmail.com</p> 
+      <p style="color:white"> Puh. +358 1234 567 890</p> 
+      <p style="color:white"> © Copyright LePizzeria oy</p> 
+    </div>
+    <div class="text-container2">
+      <h1></h1>
+      <h1 class="normal-text" style="color:white" >Palaute</h1>
+      <section class="feedback-section">
+        <div class="text-container1">
+          <br>
+          <br>
+          <br>
+          <p style="color:white"> Sähköpostiosoite: lepizzeria@gmail.com</p> 
+          <p style="color:white"> Puh. +358 1234 567 890</p> 
+          <p style="color:white"> © Copyright LePizzeria oy</p> 
+        </div>
+        <div class="text-container2">
+          <h1></h1>
+          <h1 class="normal-text" style="color:white" >Palaute</h1>
+          <form class="feedback" onsubmit="HandleEvent('sendfeedback')">
+            <div class="rating">
+              <input type="radio" id="1" name="rating" value="1" onchange="handleRatingChange(1)" checked>
+              <label for="1" title="1 star"></label>
+              &nbsp;
+              &nbsp;
+              <input type="radio" id="2" name="rating" value="2" onchange="handleRatingChange(2)">
+              <label for="2" title="2 star"></label>
+              &nbsp;
+              &nbsp;
+              <input type="radio" id="3" name="rating" value="3" onchange="handleRatingChange(3)">
+              <label for="3" title="3 star"></label>
+              &nbsp;
+              &nbsp;
+              <input type="radio" id="4" name="rating" value="4" onchange="handleRatingChange(4)">
+              <label for="4" title="4 star"></label>
+              &nbsp;
+              &nbsp;
+              <input type="radio" id="5" name="rating" value="5" onchange="handleRatingChange(5)">
+              <label for="5" title="5 star"></label>
+            </div>
+            <br>
+            <br>
+            <br>
+            <input type="email" required id="sahkoposti" placeholder="Syötä sähköpostisi" onchange="HandleEvent('hidetext')">
+            <br>
+            <br>
+            <input type="text" id="viesti" value="" placeholder="Syötä palaute" onchange="HandleEvent('hidetext')">
+            <br>
+            
+            <br>
+            <br>
+            <input type="submit" value="Lähetä" > 
+          </form>
+        </div>
+      </section>
     <script src="js/main.js"></script>
     <script src="./js/smooth-scroll.polyfills.min.js"></script>
     <script defer>

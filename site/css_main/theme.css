@@ -300,6 +300,38 @@ html, body{
 .virhelahetys {
     color:rgb(255, 120, 57);
 }
+
+.rating {
+    display: inline-block;
+  }
+  
+  .rating input {
+    display: none;
+  }
+  
+  .rating label {
+    font-size: 24px;
+    color: #ddd;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .rating label:before {
+    content: "\2605";
+  }
+  
+  .rating input:checked ~ label {
+    color: #ffd700;
+  }
+  
+  /* Rating Text Styles */
+  .rating-text {
+    margin-top: 10px;
+    color: white;
+    font-size: 16px;
+  }
+    
+
 @media only screen and (max-width: 600px) {
     .heading {
         font-size: 4em;

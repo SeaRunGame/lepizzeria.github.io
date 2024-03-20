@@ -241,5 +241,19 @@ function HandleEvent(event)
     }
 }
 
-
+function handleRatingChange(selectedRating) 
+{
+    const stars = document.querySelectorAll('.rating label');
+    stars.forEach((star, index) => {
+      if (index < selectedRating) 
+      {
+        star.style.color = '#ffd700'; // Gold color for selected stars
+      } 
+      else 
+      {
+        star.style.color = '#ddd'; // Default color for unselected stars
+      }
+    });
+  }
+  
 
