@@ -16,41 +16,24 @@ function LoadCart()
         let orders = {};
         let currentKey = "";
 
-        for (let i = 0; i < orders_raw.length; i++) 
+        for (let i = 0; i < orders_raw.length; i++)
         {
-            let [key, value] = orders_raw[i].split(":");
-            key = key.trim();
-            value = value.trim();
-
-            if (key === "Tilaus" && value === "0") 
+            let order = orders_raw[i].split(":");
+            let key = order[0].trim();
+            let value = order[1].trim();
+            
+            if (key === "Tilaus")
             {
                 order_num++;
-                currentKey = "Tilaus " + order_num;
-                orders[currentKey] = [];
-            } 
-            else 
-            {
-                orders[currentKey].push(key + " : " + value);
+                var orderTitle = document.createElement("li");
+                orderTitle.textContent = "-----------------------" + "Tilaus " + order_num + "-----------------------";
+                cart_list.appendChild(orderTitle);
             }
-        }
-
-        for (let key in orders) 
-        {
-            if (orders.hasOwnProperty(key)) 
+            else
             {
-                if (key.startsWith("Tilaus")) 
-                {
-                    var orderTitle = document.createElement("li");
-                    orderTitle.textContent = "-----------------------" + key + "-----------------------";
-                    cart_list.appendChild(orderTitle);
-                }
-                let items = orders[key];
-                for (let i = 0; i < items.length; i++) 
-                {
-                    var cartItem = document.createElement("li");
-                    cartItem.textContent = items[i];
-                    cart_list.appendChild(cartItem);
-                }
+                var cartItem = document.createElement("li");
+                cartItem.textContent = key + ": " + value;
+                cart_list.appendChild(cartItem);
             }
         }
 

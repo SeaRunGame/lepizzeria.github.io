@@ -40,11 +40,10 @@
     </div>
     
     <section class="center" style="background-color: orange;">
-        <h1 class="big">Ostoskori</h1>
-        <br>
+      <div class="box">
+        <h1 class="big">&nbsp;Ostoskori</h1>
         <p class="smaller-text" id="ostoskori_text"></p>
-        <ul id="cart_list" style="background-color: orange;"></ul>
-        <br>
+        <ul id="cart_list" style="background-color: whitesmoke; width: 55%; margin: 22%;"></ul>
         <div id="order_final" style="background-color: orange;">
             <p class="normal-text">Toimitustapa</p>
             <input type="radio" id="Nouto" value="Nouto" name="delivery" onchange="HandleEvent('HideDelivery')" checked>
@@ -66,6 +65,7 @@
             <button class="button_link" onclick="window-location.replace('index.html')">Palaa takaisin</button>
         </div>
         <div id="loader" class="loader" style="display: none;"></div>
+      </div>
     </section>
 
     <script src="js/order.js"></script>

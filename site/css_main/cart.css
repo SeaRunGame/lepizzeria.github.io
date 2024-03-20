@@ -2,3 +2,8 @@
     font-size: x-large;
     color: black;
 }
+
+.box {
+    width: auto;
+    height: auto;
+}
