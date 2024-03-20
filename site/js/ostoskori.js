@@ -42,6 +42,7 @@ function LoadCart()
     else
     {
         cart_text.textContent = "Et ole tilannut mitään";
+        cart_text.style.display = "block";
         document.getElementById("order_final").style.display = "none";
     }
 }
