@@ -84,20 +84,73 @@ function HandleEvent(event)
     {
         const dropDown = document.getElementById("pizza_order_dropdown");
         const pizza_id = dropDown.value;
+        localStorage.setItem("pizza", dropDown.querySelector('option[value="' + pizza_id + '"]').textContent);
+        var pizza = localStorage.getItem("pizza");
         var checkbox = document.getElementById("gluten-free");
         var isGlutenFree = checkbox.checked;
+        var amount = document.getElementById("amount_field").value;
+        localStorage.setItem("amount", amount);
+        var total = 0;
+        var special_notes;
         localStorage.setItem("special", document.getElementById("additional").value);
+
+        switch (pizza) 
+        {
+            case "Napoletana":
+                total += 12 * amount;
+                break;
+            case "Margherita":
+                total += 10 * amount;
+                break;
+            case "Al taglio":
+                total += 15 * amount;
+                break;
+            case "Caprese":
+                total += 18 * amount;
+                break;
+            case "Alla diavola":
+                total += 15 * amount;
+                break;
+            default:
+                alert("Virhe");
+                break;
+        }
+
 
         if (isGlutenFree)
         {
             localStorage.setItem("gluten-free", "true");
+            total += 2;
         }
         else
         {
             localStorage.setItem("gluten-free", "false");
         }
 
-        var amount = document.getElementById("amount_field").value;
+        if (localStorage.getItem("gluten-free") === "true")
+        {
+            if (localStorage.getItem("special") !== "")
+            {
+                special_notes = "Gluteeniton pohja, " + localStorage.getItem("special");
+                total += 5;
+            }
+            else
+            {
+                special_notes = "Gluteeniton pohja";
+            }
+            }
+        else
+        {
+            if (localStorage.getItem("special") !== "")
+            {
+                special_notes = localStorage.getItem("special");
+                total += 5;
+            }
+            else
+            {
+                special_notes = "Ei ole";
+            }
+        }
 
         if (pizza_id === "null")
         {
@@ -110,99 +163,47 @@ function HandleEvent(event)
                 alert("Ole hyvä ja anna järkevä määrä");
             }
             else
-            {
-                localStorage.setItem("pizza", dropDown.querySelector('option[value="' + pizza_id + '"]').textContent);
-                localStorage.setItem("amount", amount);
+            {   
+                //Success
                 document.getElementById("pizza_form_1").style.display = "none";
-                document.getElementById("pizza_form_2").style.display = "block";
-                document.getElementById("pizza").textContent = "Pizza: " + dropDown.querySelector('option[value="' + pizza_id + '"]').textContent;
-                document.getElementById("amount").textContent = "Määrä: " + amount;
+                document.getElementById("pizza_form_3").style.display = "block";
+                document.getElementById("special").textContent = "Erityishuomiot: " + special_notes;
+                document.getElementById("item").textContent = "Pizza: " + dropDown.querySelector('option[value="' + pizza_id + '"]').textContent;
+                document.getElementById("amount_final").textContent = "Määrä: " + amount;
+                document.getElementById("total").textContent = "Hinta yhteensä: " + total + "€";
 
-            }
-        }
-    }
-    else if (event === "order_pizza_next_2")
-    {
-        var failed = false;
-        document.getElementById("deliveryLocation").style.display = "none";
-        var pizza = localStorage.getItem("pizza");
-        var amount = localStorage.getItem("amount");
-        var deliveryType;
-        var deliverLocation;
-
-        if (document.getElementById("deliveryDiv").style.display === "block")
-        {
-            deliveryType = "Kuljetus";
-            if (document.getElementById("deliveryDiv").value !== "")
-            {
-                deliverLocation = document.getElementById("deliveryDiv").value;
-                document.getElementById("deliveryLocation").style.display = "block";
-            }
-            else
-            {
-                alert("Anna osoite");
-                failed = true;
-            }
-        }
-        else
-        {
-            deliveryType = "Nouto";
-            deliverLocation = "null";
-        }
-        if (!failed)
-        {
-            document.getElementById("pizza_form_2").style.display = "none";
-            document.getElementById("pizza_form_3").style.display = "block";
-
-            var total = Number(amount);
-            var delivery_time = Number(amount) * 15;
-            var in_hours = false;
-            var special_notes;
-            
-            if (deliveryType === "Kuljetus")
-            {
-                total += 5;
-                delivery_time += 120;
-            }
-
-            if (delivery_time >= 60)
-            {
-                delivery_time = delivery_time / 60;
-                in_hours = true;
-            }
-
-            total += (localStorage.getItem("gluten-free") === "true") ? 2 : 0
-
-            if (localStorage.getItem("gluten-free") === "true")
-            {
-                if (localStorage.getItem("special") !== "")
+                if ("total_prize" in localStorage)
                 {
-                    special_notes = "Gluteeniton pohja, " + localStorage.getItem("special");
+                    localStorage.setItem("total_prize", parseInt(localStorage.getItem("total_prize")) + parseInt(total));
                 }
                 else
                 {
-                    special_notes = "Gluteeniton pohja";
+                    localStorage.setItem("total_prize", parseInt(total));
                 }
-            }
-            else
-            {
-                if (localStorage.getItem("special") !== "")
+
+                if ("total_amount" in localStorage)
                 {
-                    special_notes = localStorage.getItem("special");
+                    localStorage.setItem("total_amount", parseInt(localStorage.getItem("total_amount")) + parseInt(amount));
                 }
                 else
                 {
-                    special_notes = "Ei ole";
+                    localStorage.setItem("total_amount", parseInt(amount));
                 }
-            }
 
-            document.getElementById("item").textContent = "Tuote: " + pizza;
-            document.getElementById("amount_final").textContent = "Määrä: " + amount;
-            document.getElementById("special").textContent = "Erityishuomiot: " + special_notes;
-            document.getElementById("deliveryType").textContent = "Toimitustapa: " + deliveryType;
-            document.getElementById("deliveryLocation").textContent = "Toimitusosoite: " + deliverLocation;
-            document.getElementById("delivery-time").textContent = "Arvioitu toimitusaika: " + delivery_time + ((in_hours) ? " tuntia" : " minuuttia");
-            document.getElementById("total").textContent = "Hinta yhteensä: " + total + "€";
+                //Create dataString
+                var dataString = "Tilaus:0/" + document.getElementById("item").textContent + "/" + document.getElementById("amount_final").textContent + "/" + document.getElementById("special").textContent + "/" + document.getElementById("total").textContent;
+                
+                //If ordersString exists in localStorage
+                if ("orders" in localStorage)
+                {
+                    localStorage.setItem("orders", localStorage.getItem("orders") + "/" + dataString);
+                }
+                else //if not
+                {
+                    localStorage.setItem("orders", dataString);
+                }
+
+            }
         }
     }
     else if (event === "ShowDelivery")
