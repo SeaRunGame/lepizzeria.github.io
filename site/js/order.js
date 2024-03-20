@@ -6,5 +6,13 @@ function Order_Final()
     setTimeout(function() {
         document.getElementById("loader").style.display = "none";
         document.getElementById("success_text").style.display = "block";
+
+        localStorage.removeItem("orders");
+        localStorage.removeItem("total_amount");
+        localStorage.removeItem("total_prize");
+        localStorage.removeItem("special");
+        localStorage.removeItem("gluten-free");
+        localStorage.removeItem("pizza");
+        localStorage.removeItem("amount");
     }, 3000);
 }
