@@ -120,7 +120,7 @@
       <div class="text-container2">
         <h1></h1>
         <h1 class="normal-text" style="color:white" class="normal">Palaute</h1>
-        <form class="feedback" onsubmit="HandleEvent('sendfeedback')">
+        <form class="feedback" onsubmit="sendfeedback()">
           <div class="rating">
             <input type="radio" id="1" name="rating" value="1" onchange="handleRatingChange(1)" checked>
             <label for="1" title="1 star" class="normal"></label>
@@ -140,12 +140,10 @@
           <br>
           <br>
           <input type="email" required id="sahkoposti" placeholder="Syötä sähköpostisi" class="normal">
-          <br>
-          <br>
+          <p></p>
           <input type="text" id="viesti" value="" placeholder="Syötä palaute" class="normal">
+          <p></p>
 
-          <br>
-          <br>
           <input type="submit" value="Lähetä" class="normal"> 
         </form>
       </div>
