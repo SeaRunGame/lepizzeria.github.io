@@ -13,6 +13,7 @@ function Order_Final()
         localStorage.removeItem("special");
         localStorage.removeItem("gluten-free");
         localStorage.removeItem("pizza");
+        localStorage.removeItem("pohja");
 
         localStorage.setItem("amount", 0);
         document.getElementById("amount_text").textContent = localStorage.getItem("amount");

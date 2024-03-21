@@ -77,26 +77,23 @@
       <h1 class="big">Pizzan tilaaminen</h1>
       <br>
       <form id="pizza_form_1" onsubmit="return false">
-          <p class="normal-text">Valitse pizza</p>
+          <p class="normal-text">Valitse pohja</p>
           <select id="pizza_order_dropdown" name="pizzas" size="1"'>
-              <option value="null" selected>Valitse pizza</option>
-              <option value="pizza_1" >Napoletana</option>
-              <option value="pizza_2">Margherita</option>
-              <option value="pizza_3">Al taglio</option>
-              <option value="pizza_4">Caprese</option>
-              <option value="pizza_5">Alla diavola</option>
+              <option value="null" selected>Valitse pohja</option>
+              <option value="pizza_1" >Vehnä</option>
+              <option value="pizza_2">Ruis</option>
           </select>
           <p class="normal-text">Valitse määrä</p>
           <input id="amount_field" type="number" value="1" placeholder="Syötä määrä"/>
           <p class="normal-text">Erityisruokavaliot</p>
           <input id="gluten-free" type="checkbox" name="gluten-free"/>
           <label for="gluten-free">Gluteeniton pohja (+2€)</label>
-          <p class="normal-text">Lisätiedot</p>
-          <input style="width: 350px;" id="additional" type="text" value="" placeholder="Haluatko esim. lisätäytteitä tai juoman?" />
+          <p class="normal-text">Täytteet ja lisätiedot</p>
+          <textarea style="width: 350px;" id="additional" value="" placeholder="Mitkä täytteet haluat, haluatko kenties juomankin?" required></textarea>
           <br>
           <br>
           <br>
-          <input type="submit" onclick='HandleEvent("order_pizza_next")' value="Seuraava">
+          <input type="submit" onclick='HandleEvent("order_custom_pizza_next")' value="Seuraava">
       </form>
 
       <div id="pizza_form_3" style="display: none;">
@@ -108,7 +105,7 @@
           <br>
           <p class="smaller-text" id="delivery-time"></p>
           <br>
-          <button onclick="HandleEvent('Order')">Lisää ostoskoriin</button>
+          <button onclick="HandleEvent('Order_Custom')">Lisää ostoskoriin</button>
       </div>
 
       <div id="loader" class="loader" style="display: none;"></div>

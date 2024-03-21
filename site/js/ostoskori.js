@@ -10,6 +10,7 @@ function LoadCart()
     var delivery_location = document.getElementById("deliveryLocation");
     var delivery_time = document.getElementById("delivery-time");
     var order_num = 0;
+    var custom_order_num = 0;
 
     if ("orders" in localStorage)
     {
@@ -29,6 +30,13 @@ function LoadCart()
                 var orderTitle = document.createElement("li");
                 orderTitle.textContent = "-----------------------" + "Tilaus " + order_num + "-----------------------";
                 cart_list.appendChild(orderTitle);
+            }
+            else if (key === "Fantasiapizza")
+            {
+                custom_order_num++;
+                var orderTitle = document.createElement("li");
+                orderTitle.textContent = "-------------------" + "Fantasiapizza " + custom_order_num + "-------------------";
+                cart_list.appendChild(orderTitle); 
             }
             else
             {

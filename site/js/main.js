@@ -193,6 +193,119 @@ function HandleEvent(event)
             }
         }
     }
+    else if (event === "order_custom_pizza_next")
+    {
+        const dropDown = document.getElementById("pizza_order_dropdown");
+        const pohja_id = dropDown.value;
+        localStorage.setItem("pohja", dropDown.querySelector('option[value="' + pohja_id + '"]').textContent);
+        var pohja = localStorage.getItem("pohja");
+        var checkbox = document.getElementById("gluten-free");
+        var isGlutenFree = checkbox.checked;
+        var amount = document.getElementById("amount_field").value;
+        localStorage.setItem("amount", amount);
+        var total = 10;
+        var special_notes;
+        special_notes = localStorage.getItem("special");
+        localStorage.setItem("special", document.getElementById("additional").value);
+
+        switch (pohja) 
+        {
+            case "Vehnä":
+                total += 5 * amount;
+                break;
+            case "Ruis":
+                total += 10 * amount;
+                break;
+            default:
+                break;
+        }
+
+        if (isGlutenFree)
+        {
+            localStorage.setItem("gluten-free", "true");
+            special_notes += ", Gluteeniton pohja"
+            total += 2;
+        }
+        else
+        {
+            localStorage.setItem("gluten-free", "false");
+        }
+
+        if (pohja_id === "null")
+        {
+            alert("Ole hyvä ja valitse pohja");
+        }
+        else
+        {
+            if (amount === "" || amount === "0" || Number(amount) < 0)
+            {
+                alert("Ole hyvä ja anna järkevä määrä");
+            }
+            else
+            {   
+                if (special_notes !== "")
+                {
+                    localStorage.setItem("total", total);
+                    localStorage.setItem("amount", amount);
+
+                    //Success
+                    document.getElementById("pizza_form_1").style.display = "none";
+                    document.getElementById("pizza_form_3").style.display = "block";
+                    document.getElementById("special").textContent = "Täytteet ja lisät: " + special_notes;
+                    document.getElementById("item").textContent = "Pohja: " + dropDown.querySelector('option[value="' + pohja_id + '"]').textContent;
+                    document.getElementById("amount_final").textContent = "Määrä: " + amount;
+                    document.getElementById("total").textContent = "Hinta yhteensä: " + total + "€";
+                }
+                else
+                {
+                    alert("Ole hyvä ja kerro mitä täytteitä haluat");
+                }
+            }
+        }
+    }
+    else if (event === "Order_Custom")
+    {
+        document.getElementById("pizza_form_3").style.display = "none";
+        document.getElementById("loader").style.display = "block";
+        setTimeout(function() {
+            var total = localStorage.getItem("total");
+            var amount = localStorage.getItem("amount");
+
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("order-finish").style.display = "block";
+            if ("total_prize" in localStorage)
+                {
+                    localStorage.setItem("total_prize", parseInt(localStorage.getItem("total_prize")) + parseInt(total));
+                }
+                else
+                {
+                    localStorage.setItem("total_prize", parseInt(total));
+                }
+
+                if ("total_amount" in localStorage)
+                {
+                    localStorage.setItem("total_amount", parseInt(localStorage.getItem("total_amount")) + parseInt(amount));
+                }
+                else
+                {
+                    localStorage.setItem("total_amount", parseInt(amount));
+                }
+
+                //Create dataString
+                var dataString = "Fantasiapizza:0/" + document.getElementById("item").textContent + "/" + document.getElementById("amount_final").textContent + "/" + document.getElementById("special").textContent + "/" + document.getElementById("total").textContent;
+                
+                //If ordersString exists in localStorage
+                if ("orders" in localStorage)
+                {
+                    localStorage.setItem("orders", localStorage.getItem("orders") + "/" + dataString);
+                }
+                else //if not
+                {
+                    localStorage.setItem("orders", dataString);
+                }
+                document.getElementById("amount_text").textContent = localStorage.getItem("total_amount");
+        }, 3000);
+    }
     else if (event === "ShowDelivery")
     {
         document.getElementById("deliveryDiv").style.display = "block";
