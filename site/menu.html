@@ -12,7 +12,9 @@
     <div class="row">
       <div class="leftCorner">
       </div>
+      
       <div class="topbar"> </div>
+      <div class="topbarline"> </div>
 
       <!-- KOTI NAPPI--> 
       <a href="index.html">
@@ -30,7 +32,6 @@
       </a>
 
       <!--OSTOSKORI-->
-      
         <div>
           <p id="amount_text" class="CartNum" style="color: white;"></p>
           <a href="ostoskori.html">
@@ -38,48 +39,47 @@
           </a>
         </div>
 
-      
+      <!--KIRJAUTUMINEN-->
       <div id="logged_in_page" class="row_right">
         <p id="username-text">null</p>
-      
-        <button id="log-out-button" onClick='HandleEvent("log_out")'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
- 
-        <br>
-        <p></p>
+        <p id="log-out-button" onClick='HandleEvent("log_out")'>Kirjaudu Ulos</p>
       </div>
+      
       <div id="log_in_link" class="row_right">
         <p style="background-color: #020122;"></p>     
         <a href="log_in.html">
           <img src="img/user-account-icon.jpg" width="182" height="50">
         </a>
-        &nbsp;
-        <p style="background-color: #020122;"></p>
       </div>
     </div>
+
+    <div class="headbox"> </div>
     <header class="header">
       <h1 class="heading">
         LePizzeria
-        <i class="heading-subtext"> A slice of life</i>
+        <i class="heading-subtext"> MENU</i>
       </h1>
     </header> 
 
     <section>
-        <header class="big" style=" background-color: #874631; color:white">Pizza menu</header>
-        <section class="row2" style=" background-color: #874631;">
+        <header class="big" style=" background-color: #874631; color:black; padding-bottom: 30px;">Pizza menu</header>
+        <section class="row2" style="background-color: #874631; padding-bottom: 60px;">
           <div class="pimg">
             <a href="order_pizza.html" >
               <img style="border-radius: 30px;" src="img/napoletana.jpg" width="300" height="168">
             </a>
             <p class="pvalinta">Pizza Napoletana</p>
-            <div style="background-color: #ffb347; border-radius: 20px;">
-              <ul>
-                <li>12,00€</li>
-                <li>San Marzano -tomatit</li>
-                <li>Mozzarella di Bufala</li>
-                <li>Tuore basilika</li>
+            <div class="pizzainfobox" style="line-height: 0.5; ">
+                <p>12,00€</p>
+                <p>San Marzano -tomatit</p>
+                <p>Mozzarella di Bufala</p>
+                <p>Tuore basilika</p>
                 <br>
                 <br>
-              </ul> 
+                <br>
+                <br>
+                <br>
+                <br>
             </div>
           </div>
           
@@ -88,69 +88,72 @@
               <img style="border-radius: 30px;" src="img/margherita.jpg" width="300" height="168">
             </a>
             <p class="pvalinta">Pizza Margherita</p>
-            <div style="background-color: #ffb347; border-radius: 20px;">
-              <ul>
-                <li>10,00€</li>
-                <li>Tomaattikastike</li>
-                <li>Mozzarellajuusto</li>
-                <li>Tuore basilika</li>
+            <div class="pizzainfobox" style="line-height: 0.5;">
+                <p>10,00€</p>
+                <p>Tomaattikastike</p>
+                <p>Mozzarellajuusto</p>
+                <p>Tuore basilika</p>  
                 <br>
                 <br>
-              </ul> 
+                <br>
+                <br>
+                <br>
+                <br>           
             </div>
           </div>
+
           <div class="pimg">
             <a href="order_pizza.html">
               <img style="border-radius: 30px;" src="img/taglio.jpg" width="300" height="168">
             </a>
             <p class="pvalinta">Pizza al taglio</p>
-            <div style="background-color: #ffb347; border-radius: 20px;">
-              <ul>
-                <li>15,00€</li>
-                <li>Tomaattikastike</li>
-                <li>Mozzarellajuusto</li>
-                <li>Oliiviöljy</li>
-                <li>Basilika</li>
+            <div class="pizzainfobox" style="line-height: 0.5;">
+                <p>15,00€</p>
+                <p>Tomaattikastike</p>
+                <p>Mozzarellajuusto</p>
+                <p>Oliiviöljy</p>
+                <p>Basilika</p>
                 <br>
-              </ul> 
+                <br>
+                <br>
             </div>
           </div>
+
           <div class="pimg">
             <a href="order_pizza.html">
               <img style="border-radius: 30px;" src="img/caprese.jpg" width="300" height="168">
             </a>
             <p class="pvalinta">Caprese Pizza</p>
-            <div style="background-color: #ffb347; border-radius: 20px;">
-              <ul>
-                <li>18,00€</li>
-                <li>Tomaattisiivut</li>
-                <li>Tuore mozzarellajuusto</li>
-                <li>Tuoreet basilikanlehdet</li>
-                <li>Oliiviöljy</li>
-                <li>Balsamiviinietikka </li>
+            <div class="pizzainfobox" style="line-height: 0.5;">
+                <p>18,00€</p>
+                <p>Tomaattisiivut</p>
+                <p>Tuore mozzarellajuusto</p>
+                <p>Tuoreet basilikanlehdet</p>
+                <p>Oliiviöljy</p>
+                <p>Balsamiviinietikka </p>
                 
-              </ul> 
             </div>
           </div>
+
           <div class="pimg">
             <a href="order_pizza.html">
               <img style="border-radius: 30px;" src="img/diavola.jpg" width="300" height="168"> 
             </a>
             <p class="pvalinta">Pizza alla diavola</p>
-            <div style="background-color: #ffb347; border-radius: 20px;">
-              <ul>
-                <li>15,00€</li>
-                <li>Tomaattikastike</li>
-                <li>Mozzarellajuusto
-                </li>
-                <li>Mausteinen salami</li>
-                <li>Chilipippuriöljy</li>
+            <div class="pizzainfobox" style="line-height: 0.5;">
+                <p>15,00€</p>
+                <p>Tomaattikastike</p>
+                <p>Mozzarellajuusto</p>
+                <p>Mausteinen salami</p>
+                <p>Chilipippuriöljy</p>
                 <br>
-              </ul> 
+                <br>
+                <br>
             </div>
           </div>
         </section>
     </section>
+    
     <section class="feedback-section">
       <div class="text-container1">
         <br>

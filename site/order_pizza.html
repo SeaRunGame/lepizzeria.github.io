@@ -12,7 +12,9 @@
     <div class="row">
       <div class="leftCorner">
       </div>
+      
       <div class="topbar"> </div>
+      <div class="topbarline"> </div>
 
       <!-- KOTI NAPPI--> 
       <a href="index.html">
@@ -30,7 +32,6 @@
       </a>
 
       <!--OSTOSKORI-->
-      
         <div>
           <p id="amount_text" class="CartNum" style="color: white;"></p>
           <a href="ostoskori.html">
@@ -38,22 +39,17 @@
           </a>
         </div>
 
-      
+      <!--KIRJAUTUMINEN-->
       <div id="logged_in_page" class="row_right">
         <p id="username-text">null</p>
-      
-        <button id="log-out-button" onClick='HandleEvent("log_out")'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
- 
-        <br>
-        <p></p>
+        <p id="log-out-button" onClick='HandleEvent("log_out")'>Kirjaudu Ulos</p>
       </div>
+      
       <div id="log_in_link" class="row_right">
         <p style="background-color: #020122;"></p>     
         <a href="log_in.html">
           <img src="img/user-account-icon.jpg" width="182" height="50">
         </a>
-        &nbsp;
-        <p style="background-color: #020122;"></p>
       </div>
     </div>
     
@@ -62,7 +58,7 @@
         <br>
         <form id="pizza_form_1" onsubmit="return false">
             <p class="normal-text">Valitse pizza</p>
-            <select id="pizza_order_dropdown" name="pizzas" size="1"'>
+            <select id="pizza_order_dropdown" name="pizzas" size="1">
                 <option value="null" selected>Valitse pizza</option>
                 <option value="pizza_1" >Napoletana</option>
                 <option value="pizza_2">Margherita</option>
@@ -109,7 +105,7 @@
           <p class="smaller-text">Jotta voisit tilata pizzojamme, kirjaudu sisään tai rekisteröidy.</p>
         </div>
     </section>
-    <div style="background-color: orange;">
+    <div style="background-color: #874631;">
       <br>
       <br>
       <br>

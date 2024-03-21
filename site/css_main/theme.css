@@ -54,7 +54,7 @@ html, body{
 }
 
 .orange-bg {
-    background-color: orange;
+    background-color: #874631;
 }
 
 .image-text-section {
@@ -140,6 +140,10 @@ html, body{
     height: 106px;
     cursor: pointer;
 }
+/* NAVIGATION BAR, VOIT VAIHTAA FIXED & ABSOLUTE*/
+
+#username-text,
+#log-out-button,
 .topbar,
 .CartNum,
 .CartButton,
@@ -148,9 +152,10 @@ html, body{
 .HomeButton,
 .CreateButton{
     position:absolute;
+    
 }
 .topbar {
-    background-color: black;
+    background-color: #191102;
     width: 1920px;
     height:106px;
 }
@@ -193,23 +198,29 @@ html, body{
     top: -10px;
     left: 400px;
 }
+#log-out-button {
+    color:white;
+    background-color:rgb(173, 84, 10);
+    border-radius: 50px;
+    border: none;
+    width: 125px;
+    height: 35px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right:62px;
+    top:35px;
 
+}
 #username-text {
     color: white;
     font-size: large;
+    width:250px;
+    top:-15px;
+    right:0px;
+    
 }
-
-#log-out-button {
-    background-image: url(../img/Log_out_button.png);
-    background-size: cover;
-    background-color: #020122;
-    border: none;
-    width: 125px;
-    height: 40px;
-    cursor: pointer;
-   
-}
-
 .header{
     background-image: url(https://recipesblob.oetker.fi/assets/935bd3d912cf4142a6e456a592f60551/1272x764/hurtig-og-nem-pizza-web.webp);
     background-repeat: no-repeat;
@@ -218,10 +229,16 @@ html, body{
     background-size: cover;
     height: 40vh;
     margin: 0;
-    padding-top: 60vh;
+    padding-top: 49vh;
 }
 .heading {
+    position: absolute;
+    left:750px;
+    top:370px;
     color: #ffffff;
+    width: 500px;
+    height: 230px;
+    border-radius: 50px;
     display: block;
     font-family: 'Amethysta', cursive;
     font-size: 6em;
@@ -233,6 +250,24 @@ html, body{
     display: block;
     font-family: 'Amethysta', cursive;
     font-size: .6em;
+}
+.headbox {
+    position: absolute;
+    background-color: #191102 ;
+    opacity: 0%;
+    width: 500px;
+    height:250px;
+    top:420px;
+    left:752px;
+    border-radius: 40px;
+}
+.pizzainfobox {
+    
+    background-color: #874631;
+    display: block;
+    margin-left: 40px;
+    width: 300px;
+    border: 2px solid black;
 }
 .fixed-button{
     background: rgba(20,20,20,.5);
@@ -314,7 +349,8 @@ html, body{
     height: auto;
 }
 .pvalinta {
-    color:white;
+    color:black;
+    font-weight: 600;
 
 }
 @keyframes spin {
@@ -360,6 +396,7 @@ html, body{
     color: white;
     font-size: 16px;
   }
+  
     
 
 @media only screen and (max-width: 600px) {
