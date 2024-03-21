@@ -7,6 +7,8 @@ function HandleEvent(event)
         var path = window.location.pathname;
         var current_page = path.split("/").pop().replace(".html", "");
         
+        document.getElementById("amount_text").textContent = localStorage.getItem("total_amount");
+        
         if (current_page !== "index" && current_page !== "log_in" && current_page !== "create_pizza" && current_page !== "order_pizza")
         {
             localStorage.setItem("current_page", current_page);
@@ -229,6 +231,7 @@ function HandleEvent(event)
                 {
                     localStorage.setItem("orders", dataString);
                 }
+                document.getElementById("amount_text").textContent = localStorage.getItem("total_amount");
         }, 3000);
     }
     else if (event === "home")

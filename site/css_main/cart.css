@@ -11,3 +11,9 @@
     width: auto;
     height: auto;
 }
+
+#amount_text {
+    color: white; 
+    font-size: large; 
+    line-height: 50%;
+}

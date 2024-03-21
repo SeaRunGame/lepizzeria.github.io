@@ -17,7 +17,30 @@
         </a>
       </div>
       <button class="MenuButton" onclick="HandleEvent('menu')">Menu</button>
+
       <button class="CreateButton" onclick='window-location.replace("create_pizza.html")'>Luo oma pizzasi</button>
+      &nbsp;
+      <a href="ostoskori.html" style="cursor: pointer; line-height: 70%; right: 100px;">
+        &nbsp;
+        <div id="amount_text"></div>
+        <img src="img/Cart.png" width="80px" height="80px">
+      </a>
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
       <div id="logged_in_page" class="row_right">
         <p id="username-text">null</p>
         &nbsp;
@@ -30,12 +53,12 @@
         <p></p>
       </div>
       <div id="log_in_link" class="row_right">
-        <p style="background-color: rgb(73, 73, 73);"></p>     
+        <p style="background-color: #020122;"></p>     
         <a href="log_in.html">
           <img src="img/user-account-icon.jpg" width="182" height="50">
         </a>
         &nbsp;
-        <p style="background-color: rgb(73, 73, 73);"></p>
+        <p style="background-color: #020122;"></p>
       </div>
     </div>
     
@@ -97,7 +120,7 @@
       <div class="text-container2">
         <h1></h1>
         <h1 class="normal-text" style="color:white" class="normal">Palaute</h1>
-        <form class="feedback" onsubmit="sendfeedback()">
+        <form class="feedback" onsubmit="HandleEvent('sendfeedback')">
           <div class="rating">
             <input type="radio" id="1" name="rating" value="1" onchange="handleRatingChange(1)" checked>
             <label for="1" title="1 star" class="normal"></label>

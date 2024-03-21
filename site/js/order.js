@@ -14,5 +14,7 @@ function Order_Final()
         localStorage.removeItem("gluten-free");
         localStorage.removeItem("pizza");
         localStorage.removeItem("amount");
+
+        document.getElementById("amount_text").textContent = 0;
     }, 3000);
 }
