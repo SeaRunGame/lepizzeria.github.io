@@ -73,7 +73,7 @@ function LoadCart()
         }
         else
         {
-            cart_text.textContent = "Et ole tilannut mitään";
+            cart_text.textContent = "Ostoskori on tyhjä";
             cart_text.style.display = "block";
             document.getElementById("order_final").style.display = "none";
             localStorage.setItem("total_amount", 0);
@@ -83,7 +83,7 @@ function LoadCart()
     }
     else
     {
-        cart_text.textContent = "Et ole tilannut mitään";
+        cart_text.textContent = "Ostoskori on tyhjä";
         cart_text.style.display = "block";
         document.getElementById("order_final").style.display = "none";
         localStorage.setItem("total_amount", 0);
