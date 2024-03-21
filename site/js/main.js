@@ -9,18 +9,12 @@ function HandleEvent(event)
         
         if ("amount" in localStorage)
         {
-            if (parseInt(localStorage.getItem("amount")) === 0)
-            {
-                document.getElementById("amount_text").textContent = "0";
-            }
-            else
-            {
-                document.getElementById("amount_text").textContent = localStorage.getItem("total_amount");
-            }
+            document.getElementById("amount_text").textContent = localStorage.getItem("amount");
         }
         else
         {
-            document.getElementById("amount_text").textContent = "0";
+            localStorage.setItem("amount", 0);
+            document.getElementById("amount_text").textContent = localStorage.getItem("amount");
         }
         
         if (current_page !== "index" && current_page !== "log_in" && current_page !== "create_pizza" && current_page !== "order_pizza")
