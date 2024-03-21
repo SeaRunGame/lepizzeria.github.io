@@ -122,7 +122,6 @@ function HandleEvent(event)
                 total += 15 * amount;
                 break;
             default:
-                alert("Virhe");
                 break;
         }
 
@@ -199,8 +198,8 @@ function HandleEvent(event)
         localStorage.setItem("amount", amount);
         var total = 10;
         var special_notes;
-        special_notes = localStorage.getItem("special");
         localStorage.setItem("special", document.getElementById("additional").value);
+        special_notes = localStorage.getItem("special");
 
         switch (pohja) 
         {
@@ -214,30 +213,30 @@ function HandleEvent(event)
                 break;
         }
 
-        if (isGlutenFree)
+        if (special_notes !== "" && special_notes !== null)
         {
-            localStorage.setItem("gluten-free", "true");
-            special_notes += ", Gluteeniton pohja"
-            total += 2;
-        }
-        else
-        {
-            localStorage.setItem("gluten-free", "false");
-        }
-
-        if (pohja_id === "null")
-        {
-            alert("Ole hyvä ja valitse pohja");
-        }
-        else
-        {
-            if (amount === "" || amount === "0" || Number(amount) < 0)
+            if (isGlutenFree)
             {
-                alert("Ole hyvä ja anna järkevä määrä");
+                localStorage.setItem("gluten-free", "true");
+                special_notes += ", Gluteeniton pohja"
+                total += 2;
             }
             else
-            {   
-                if (special_notes !== "")
+            {
+                localStorage.setItem("gluten-free", "false");
+            }
+
+            if (pohja_id === "null")
+            {
+                alert("Ole hyvä ja valitse pohja");
+            }
+            else
+            {
+                if (amount === "" || amount === "0" || Number(amount) < 0)
+                {
+                    alert("Ole hyvä ja anna järkevä määrä");
+                }
+                else
                 {
                     localStorage.setItem("total", total);
                     localStorage.setItem("amount", amount);
@@ -250,11 +249,11 @@ function HandleEvent(event)
                     document.getElementById("amount_final").textContent = "Määrä: " + amount;
                     document.getElementById("total").textContent = "Hinta yhteensä: " + total + "€";
                 }
-                else
-                {
-                    alert("Ole hyvä ja kerro mitä täytteitä haluat");
-                }
             }
+        }
+        else
+        {
+            alert("Ole hyvä ja kerro mitä täytteitä haluat");
         }
     }
     else if (event === "Order_Custom")
