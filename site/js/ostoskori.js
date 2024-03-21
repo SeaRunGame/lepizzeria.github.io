@@ -131,6 +131,7 @@ function CreateButton(order_num, cart_list)
 {
     var delButton = document.createElement("button");
     delButton.textContent = "Poista";
+    delButton.style = "background-color: red; color: white; border: 1px solid black; border-radius: 10px; cursor: pointer;"
     delButton.onclick = function() {
          Destroy_Order(order_num)
     };
