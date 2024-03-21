@@ -7,14 +7,14 @@ function HandleEvent(event)
         var path = window.location.pathname;
         var current_page = path.split("/").pop().replace(".html", "");
         
-        if ("amount" in localStorage)
+        if ("total_amount" in localStorage)
         {
-            document.getElementById("amount_text").textContent = localStorage.getItem("amount");
+            document.getElementById("amount_text").textContent = localStorage.getItem("total_amount");
         }
         else
         {
-            localStorage.setItem("amount", 0);
-            document.getElementById("amount_text").textContent = localStorage.getItem("amount");
+            localStorage.setItem("total_amount", 0);
+            document.getElementById("amount_text").textContent = localStorage.getItem("total_amount");
         }
         
         if (current_page !== "index" && current_page !== "log_in" && current_page !== "create_pizza" && current_page !== "order_pizza")
@@ -340,7 +340,7 @@ function HandleEvent(event)
                 }
 
                 //Create dataString
-                var dataString = "Tilaus:0/" + document.getElementById("item").textContent + "/" + document.getElementById("amount_final").textContent + "/" + document.getElementById("special").textContent + "/" + document.getElementById("total").textContent;
+                var dataString = "Tilaus:" + localStorage.getItem("pizza") + "/" + document.getElementById("item").textContent + "/" + document.getElementById("amount_final").textContent + "/" + document.getElementById("special").textContent + "/" + document.getElementById("total").textContent;
                 
                 //If ordersString exists in localStorage
                 if ("orders" in localStorage)
