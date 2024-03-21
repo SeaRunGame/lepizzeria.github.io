@@ -255,5 +255,10 @@ function handleRatingChange(selectedRating)
       }
     });
   }
-  
+
+
+function sendfeedback()
+{
+    alert("Palaute lähetettiin onnistuneesti!");
+}
 
