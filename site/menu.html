@@ -11,13 +11,11 @@
   <body>
     <div class="row">
       <div class="leftCorner">
-        <a href="index.html">
-          <img src="img/LePizzeriaJPG_2.jpg" width="148" height="106"/>
-        </a>
       </div>
-      <button class="MenuButton" onclick="HandleEvent('menu')">Menu</button>
+      <img src="img/koti.png" class="HomeButton" onclick="HandleEvent('home')">
+      <button class="MenuButton" onclick="HandleEvent('menu')">MENU</button>
 
-      <button class="CreateButton" onclick='window-location.replace("create_pizza.html")'>Luo oma pizzasi</button>
+      <button style="width:500px;" class="CreateButton" onclick='window-location.replace("create_pizza.html")'>LUO OMA PIZZASI</button>
       <a href="ostoskori.html" style="cursor: pointer;">
         &nbsp;
         &nbsp;
@@ -68,12 +66,38 @@
         <p style="background-color: #020122;"></p>
       </div>
     </div>
+    <header class="header">
+      <h1 class="heading">
+        LePizzeria
+        <i class="heading-subtext"> A slice of life</i>
+      </h1>
+    </header> 
+
+    <section>
+        <header class="big" style=" background-color: #874631; color:white">Pizza menu</header>
+        <section class="row2" style=" background-color: #874631;">
+          <div class="pimg">
+            <a href="order_pizza.html" >
+              <img style="border-radius: 30px;" src="img/napoletana.jpg" width="300" height="168">
+            </a>
+            <p class="pvalinta">Pizza Napoletana</p>
+            <div style="background-color: #ffb347; border-radius: 20px;">
+              <ul>
+                <li>12,00€</li>
+                <li>San Marzano -tomatit</li>
+                <li>Mozzarella di Bufala</li>
+                <li>Tuore basilika</li>
+                <br>
+                <br>
+              </ul> 
+            </div>
+          </div>
           
           <div class="pimg">
             <a href="order_pizza.html">
               <img style="border-radius: 30px;" src="img/margherita.jpg" width="300" height="168">
-              <p class="pvalinta">Pizza Margherita</p>
             </a>
+            <p class="pvalinta">Pizza Margherita</p>
             <div style="background-color: #ffb347; border-radius: 20px;">
               <ul>
                 <li>10,00€</li>
@@ -88,8 +112,8 @@
           <div class="pimg">
             <a href="order_pizza.html">
               <img style="border-radius: 30px;" src="img/taglio.jpg" width="300" height="168">
-              <p class="pvalinta">Pizza al taglio</p>
             </a>
+            <p class="pvalinta">Pizza al taglio</p>
             <div style="background-color: #ffb347; border-radius: 20px;">
               <ul>
                 <li>15,00€</li>
@@ -104,8 +128,8 @@
           <div class="pimg">
             <a href="order_pizza.html">
               <img style="border-radius: 30px;" src="img/caprese.jpg" width="300" height="168">
-              <p class="pvalinta">Caprese Pizza</p>
             </a>
+            <p class="pvalinta">Caprese Pizza</p>
             <div style="background-color: #ffb347; border-radius: 20px;">
               <ul>
                 <li>18,00€</li>
@@ -121,8 +145,8 @@
           <div class="pimg">
             <a href="order_pizza.html">
               <img style="border-radius: 30px;" src="img/diavola.jpg" width="300" height="168"> 
-              <p class="pvalinta">Pizza alla diavola</p>
             </a>
+            <p class="pvalinta">Pizza alla diavola</p>
             <div style="background-color: #ffb347; border-radius: 20px;">
               <ul>
                 <li>15,00€</li>

@@ -16,7 +16,7 @@ html, body{
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    background-color: #020122;
+    background-color: black;
     background-size: 100px 106px;
     position: relative;
     width: auto;
@@ -140,7 +140,8 @@ html, body{
     height: 106px;
     cursor: pointer;
 }
-
+.Logo,
+.HomeButton,
 .MenuButton,
 .CreateButton {
     position: absolute;
@@ -152,17 +153,33 @@ html, body{
     font-size: 40px;
     color: white;
 }
-
+.Logo {
+    padding-right: 1640px;
+    background-color: transparent;
+    width: 250px;
+    height:auto;
+    cursor: default;
+}
+.HomeButton {
+    
+    left: 210px;
+    background-color: transparent;
+    width: 100px;
+    height: 100px;
+}
 .MenuButton {
-    left: 175px;
+    left: 265px;
     background-color: transparent;
     width: 300px;
-}
+    top:3px;
+    
 
+}
 .CreateButton {
-    left: 500px;
+    left: 465px;
     background-color: transparent;
     width: 310px;
+    top:3px;
 }
 
 #username-text {
@@ -178,6 +195,7 @@ html, body{
     width: 125px;
     height: 40px;
     cursor: pointer;
+   
 }
 
 .header{
