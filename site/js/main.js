@@ -164,6 +164,9 @@ function HandleEvent(event)
             }
             else
             {   
+                localStorage.setItem("total", total);
+                localStorage.setItem("amount", amount);
+
                 //Success
                 document.getElementById("pizza_form_1").style.display = "none";
                 document.getElementById("pizza_form_3").style.display = "block";
@@ -171,8 +174,32 @@ function HandleEvent(event)
                 document.getElementById("item").textContent = "Pizza: " + dropDown.querySelector('option[value="' + pizza_id + '"]').textContent;
                 document.getElementById("amount_final").textContent = "Määrä: " + amount;
                 document.getElementById("total").textContent = "Hinta yhteensä: " + total + "€";
+            }
+        }
+    }
+    else if (event === "ShowDelivery")
+    {
+        document.getElementById("deliveryDiv").style.display = "block";
+        localStorage.setItem("total_prize", parseInt(localStorage.getItem("total_prize")) + 5);
+        document.getElementById("total_final").textContent = "Yhteishinta: " + localStorage.getItem("total_prize") + "€";
+    }
+    else if (event === "HideDelivery")
+    {
+        document.getElementById("deliveryDiv").style.display = "none";
+        localStorage.setItem("total_prize", parseInt(localStorage.getItem("total_prize")) - 5);
+        document.getElementById("total_final").textContent = "Yhteishinta: " + localStorage.getItem("total_prize") + "€";
+    }
+    else if (event === "Order")
+    {
+        document.getElementById("pizza_form_3").style.display = "none";
+        document.getElementById("loader").style.display = "block";
+        setTimeout(function() {
+            var total = localStorage.getItem("total");
+            var amount = localStorage.getItem("amount");
 
-                if ("total_prize" in localStorage)
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("order-finish").style.display = "block";
+            if ("total_prize" in localStorage)
                 {
                     localStorage.setItem("total_prize", parseInt(localStorage.getItem("total_prize")) + parseInt(total));
                 }
@@ -202,29 +229,6 @@ function HandleEvent(event)
                 {
                     localStorage.setItem("orders", dataString);
                 }
-
-            }
-        }
-    }
-    else if (event === "ShowDelivery")
-    {
-        document.getElementById("deliveryDiv").style.display = "block";
-        localStorage.setItem("total_prize", parseInt(localStorage.getItem("total_prize")) + 5);
-        document.getElementById("total_final").textContent = "Yhteishinta: " + localStorage.getItem("total_prize") + "€";
-    }
-    else if (event === "HideDelivery")
-    {
-        document.getElementById("deliveryDiv").style.display = "none";
-        localStorage.setItem("total_prize", parseInt(localStorage.getItem("total_prize")) - 5);
-        document.getElementById("total_final").textContent = "Yhteishinta: " + localStorage.getItem("total_prize") + "€";
-    }
-    else if (event === "Order")
-    {
-        document.getElementById("pizza_form_3").style.display = "none";
-        document.getElementById("loader").style.display = "block";
-        setTimeout(function() {
-            document.getElementById("loader").style.display = "none";
-            document.getElementById("order-finish").style.display = "block";
         }, 3000);
     }
     else if (event === "home")
