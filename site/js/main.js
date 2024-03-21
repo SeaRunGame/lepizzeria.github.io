@@ -7,7 +7,21 @@ function HandleEvent(event)
         var path = window.location.pathname;
         var current_page = path.split("/").pop().replace(".html", "");
         
-        document.getElementById("amount_text").textContent = localStorage.getItem("total_amount");
+        if ("amount" in localStorage)
+        {
+            if (parseInt(localStorage.getItem("amount")) === 0)
+            {
+                document.getElementById("amount_text").textContent = "0";
+            }
+            else
+            {
+                document.getElementById("amount_text").textContent = localStorage.getItem("total_amount");
+            }
+        }
+        else
+        {
+            document.getElementById("amount_text").textContent = "0";
+        }
         
         if (current_page !== "index" && current_page !== "log_in" && current_page !== "create_pizza" && current_page !== "order_pizza")
         {
