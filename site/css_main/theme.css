@@ -140,11 +140,31 @@ html, body{
     height: 106px;
     cursor: pointer;
 }
-.Logo,
+.topbar,
+.CartNum,
+.CartButton,
 .HomeButton,
 .MenuButton,
+.HomeButton,
+.CreateButton{
+    position:absolute;
+}
+.topbar {
+    background-color: black;
+    width: 1920px;
+    height:106px;
+}
+.CartNum {
+    right:320px;
+    top: 30px;
+}
+.CartButton{
+    width:80px; 
+    height:80px;
+    right:340px;
+    top:15px;
+}
 .CreateButton {
-    position: absolute;
     top: 1;
     height: 110px;
     border: none;
@@ -153,33 +173,25 @@ html, body{
     font-size: 40px;
     color: white;
 }
-.Logo {
-    padding-right: 1640px;
-    background-color: transparent;
-    width: 250px;
-    height:auto;
-    cursor: default;
-}
 .HomeButton {
-    
-    left: 210px;
-    background-color: transparent;
-    width: 100px;
-    height: 100px;
-}
-.MenuButton {
-    left: 265px;
-    background-color: transparent;
-    width: 300px;
-    top:3px;
-    
+    left: 0px;
+    top: 0px;
+    width: 148px;
+    height: auto;
+    cursor: pointer;
 
 }
+.MenuButton {
+    color:white;
+    font-size: 40px;
+    top: -10px;
+    left: 200px;
+}
 .CreateButton {
-    left: 465px;
-    background-color: transparent;
-    width: 310px;
-    top:3px;
+    color:white;
+    font-size: 40px;
+    top: -10px;
+    left: 400px;
 }
 
 #username-text {

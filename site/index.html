@@ -12,49 +12,38 @@
     <div class="row">
       <div class="leftCorner">
       </div>
-      <img src="img/LePizzeriaPNG.png" class="Logo">
-      <img src="img/koti.png" class="HomeButton" onclick="HandleEvent('home')">
-      <button class="MenuButton" onclick="HandleEvent('menu')">MENU</button>
+      
+      <div class="topbar"> </div>
 
-      <button style="width:500px;" class="CreateButton" onclick='window-location.replace("create_pizza.html")'>LUO OMA PIZZASI</button>
-      <a href="ostoskori.html" style="cursor: pointer;">
-        &nbsp;
-        &nbsp;
-        <div id="amount_text" style="color: white; font-size: large; line-height: 50%;"></div>
-        <img src="img/Cart.png" width="80px" height="80px">
+      <!-- KOTI NAPPI--> 
+      <a href="index.html">
+        <img src="img/LePizzeriaJPG_2.jpg" class="HomeButton"> 
       </a>
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
+
+      <!-- MENU NAPPI-->
+      <a href="menu.html">
+        <p class="MenuButton">MENU</p> 
+      </a>
+
+      <!-- LUO OMA PIZZASI NAPPI-->
+      <a href="create_pizza.html">
+        <p class="CreateButton">LUO OMA PIZZASI</p> 
+      </a>
+
+      <!--OSTOSKORI-->
+        <div>
+          <p id="amount_text" class="CartNum" style="color: white;"></p>
+          <a href="ostoskori.html">
+            <img src="img/Cart.png" class="CartButton">
+          </a>
+        </div>
+
+      <!--KIRJAUTUMINEN-->
       <div id="logged_in_page" class="row_right">
         <p id="username-text">null</p>
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        <button id="log-out-button" onClick='HandleEvent("log_out")'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-        &nbsp;
+        
+        <button id="log-out-button" onClick='HandleEvent("log_out")'></button>
+ 
         <br>
         <p></p>
       </div>
@@ -63,8 +52,8 @@
         <a href="log_in.html">
           <img src="img/user-account-icon.jpg" width="182" height="50">
         </a>
-        &nbsp;
-        <p style="background-color: #020122;"></p>
+        
+        
       </div>
     </div>
     <header class="header">

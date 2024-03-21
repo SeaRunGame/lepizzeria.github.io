@@ -12,43 +12,39 @@
   <body class="orange-bg">
     <div class="row">
       <div class="leftCorner">
-        <a href="index.html">
-          <img src="img/LePizzeriaJPG_2.jpg" width="148" height="106"/>
-        </a>
       </div>
-      <button class="MenuButton" onclick="HandleEvent('menu')">Menu</button>
+      <div class="topbar"> </div>
 
-      <button class="CreateButton" onclick='window-location.replace("create_pizza.html")'>Luo oma pizzasi</button>
-      &nbsp;
-      <a href="ostoskori.html" style="cursor: pointer; line-height: 70%; right: 100px;">
-        &nbsp;
-        <div id="amount_text"></div>
-        <img src="img/Cart.png" width="80px" height="80px">
+      <!-- KOTI NAPPI--> 
+      <a href="index.html">
+        <img src="img/LePizzeriaJPG_2.jpg" class="HomeButton"> 
       </a>
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
+
+      <!-- MENU NAPPI-->
+      <a href="menu.html">
+        <p class="MenuButton">MENU</p> 
+      </a>
+
+      <!-- LUO OMA PIZZASI NAPPI-->
+      <a href="create_pizza.html">
+        <p class="CreateButton">LUO OMA PIZZASI</p> 
+      </a>
+
+      <!--OSTOSKORI-->
+      
+        <div>
+          <p id="amount_text" class="CartNum" style="color: white;"></p>
+          <a href="ostoskori.html">
+            <img src="img/Cart.png" class="CartButton">
+          </a>
+        </div>
+
+      
       <div id="logged_in_page" class="row_right">
         <p id="username-text">null</p>
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
+      
         <button id="log-out-button" onClick='HandleEvent("log_out")'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-        &nbsp;
+ 
         <br>
         <p></p>
       </div>
