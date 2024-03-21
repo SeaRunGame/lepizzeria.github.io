@@ -6,6 +6,7 @@ function HandleEvent(event)
     {
         var path = window.location.pathname;
         var current_page = path.split("/").pop().replace(".html", "");
+        localStorage.setItem("current_page", current_page);
         
         if ("total_amount" in localStorage)
         {
@@ -17,10 +18,6 @@ function HandleEvent(event)
             document.getElementById("amount_text").textContent = localStorage.getItem("total_amount");
         }
         
-        if (current_page !== "index" && current_page !== "log_in" && current_page !== "create_pizza" && current_page !== "order_pizza")
-        {
-            localStorage.setItem("current_page", current_page);
-        }
 
         if ("logged_in" in localStorage && localStorage.getItem("logged_in") !== "") 
         {
@@ -34,6 +31,12 @@ function HandleEvent(event)
             // User is not logged in
             document.getElementById("logged_in_page").style.display = 'none';
             document.getElementById("log_in_link").style.display = 'block';
+
+            if (current_page === "order_pizza" || current_page === "create_pizza")
+            {
+                document.getElementById("pizza_form_1").style.display = "none"
+                document.getElementById("not_logged_in").style.display = "block"
+            }
         }
     } 
     else if (event === "logged_in") 
